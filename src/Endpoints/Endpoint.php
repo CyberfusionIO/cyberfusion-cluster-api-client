@@ -57,6 +57,10 @@ abstract class Endpoint
      */
     protected function filterFields(array $array, array $fields = []): array
     {
+        if (count($fields) === 0) {
+            return $array;
+        }
+
         return Arr::only($array, $fields);
     }
 }
