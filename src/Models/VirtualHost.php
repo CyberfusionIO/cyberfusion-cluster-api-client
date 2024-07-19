@@ -1,12 +1,12 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Models;
+namespace Cyberfusion\CoreApi\Models;
 
-use Cyberfusion\ClusterApi\Enums\AllowOverrideDirectives;
-use Cyberfusion\ClusterApi\Enums\AllowOverrideOptionDirectives;
-use Cyberfusion\ClusterApi\Enums\VirtualHostServerSoftwareName;
-use Cyberfusion\ClusterApi\Support\Arr;
-use Cyberfusion\ClusterApi\Support\Validator;
+use Cyberfusion\CoreApi\Enums\AllowOverrideDirectives;
+use Cyberfusion\CoreApi\Enums\AllowOverrideOptionDirectives;
+use Cyberfusion\CoreApi\Enums\VirtualHostServerSoftwareName;
+use Cyberfusion\CoreApi\Support\Arr;
+use Cyberfusion\CoreApi\Support\Validator;
 
 class VirtualHost extends ClusterModel
 {

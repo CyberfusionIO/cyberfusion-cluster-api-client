@@ -1,11 +1,11 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Support;
+namespace Cyberfusion\CoreApi\Support;
 
-use Cyberfusion\ClusterApi\Contracts\Filter;
-use Cyberfusion\ClusterApi\Enums\Limit;
-use Cyberfusion\ClusterApi\Enums\Sort;
-use Cyberfusion\ClusterApi\Exceptions\ListFilterException;
+use Cyberfusion\CoreApi\Contracts\Filter;
+use Cyberfusion\CoreApi\Enums\Limit;
+use Cyberfusion\CoreApi\Enums\Sort;
+use Cyberfusion\CoreApi\Exceptions\ListFilterException;
 use DateTimeInterface;
 
 class LogFilter implements Filter

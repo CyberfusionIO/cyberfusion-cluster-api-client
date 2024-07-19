@@ -1,9 +1,9 @@
-name: Cluster API
+name: Core API
 
 on: [ push, pull_request ]
 
 jobs:
-  cluster-api-tests:
+  core-api-tests:
     runs-on: ubuntu-latest
     strategy:
       matrix:

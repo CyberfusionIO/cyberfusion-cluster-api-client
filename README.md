@@ -1,13 +1,13 @@
-# Cyberfusion Cluster API client
+# Cyberfusion Core API client
 
-Client for the [Cyberfusion Cluster API](https://cluster-api.cyberfusion.nl/).
+Client for the [Cyberfusion Core API](https://core-api.cyberfusion.io/).
 
 This client was built for and tested on the **1.230.1** version of the API.
 
 ## Support
 
 This client is officially supported by Cyberfusion. If you have any questions, open an issue on GitHub or email 
-support@cyberfusion.nl.
+support@cyberfusion.io.
 
 The client was created by @dvdheiden.
 
@@ -21,18 +21,18 @@ This client can be used in any PHP project and with any framework.
 
 Install the client with Composer:
 
-`composer require cyberfusion/cluster-api-client`
+`composer require cyberfusion/core-api-client`
 
 ## Usage
 
-Refer to the [API documentation](https://cluster-api.cyberfusion.nl/) for information about API requests.
+Refer to the [API documentation](https://core-api.cyberfusion.io/) for information about API requests.
 
 ### Getting started
 
 ```php
-use Cyberfusion\ClusterApi\Client;
-use Cyberfusion\ClusterApi\Configuration;
-use Cyberfusion\ClusterApi\ClusterApi;
+use Cyberfusion\CoreApi\Client;
+use Cyberfusion\CoreApi\Configuration;
+use Cyberfusion\CoreApi\CoreApi;
 
 // Create the configuration with your username/password
 $configuration = Configuration::withCredentials('username', 'password');
@@ -41,7 +41,7 @@ $configuration = Configuration::withCredentials('username', 'password');
 $client = new Client($configuration);
 
 // Initialize the API
-$api = new ClusterApi($client);
+$api = new CoreApi($client);
 
 // Perform the request
 $result = $api->virtualHosts()->list();
@@ -88,10 +88,10 @@ A `ListFilter` can be initialized for a model, so it automatically validates if 
 the model.
 
 ```php
-use Cyberfusion\ClusterApi\Enums\Sort;
-use Cyberfusion\ClusterApi\Models\VirtualHost;
-use Cyberfusion\ClusterApi\Support\FilterEntry;
-use Cyberfusion\ClusterApi\Support\SortEntry;
+use Cyberfusion\CoreApi\Enums\Sort;
+use Cyberfusion\CoreApi\Models\VirtualHost;
+use Cyberfusion\CoreApi\Support\FilterEntry;
+use Cyberfusion\CoreApi\Support\SortEntry;
 
 $listFilter = VirtualHost::listFilter()
     ->filter(new FilterEntry('server_software_name', 'Apache'))
@@ -178,10 +178,10 @@ The access token is valid for 30 minutes, so there's no need to store it. To sto
 #### Manually authenticate
 
 ```php
-use Cyberfusion\ClusterApi\Client;
-use Cyberfusion\ClusterApi\ClusterApi;
-use Cyberfusion\ClusterApi\Configuration;
-use Cyberfusion\ClusterApi\Models\Login;
+use Cyberfusion\CoreApi\Client;
+use Cyberfusion\CoreApi\CoreApi;
+use Cyberfusion\CoreApi\Configuration;
+use Cyberfusion\CoreApi\Models\Login;
 
 // Initialize the configuration without any credentials or access token
 $configuration = new Configuration();
@@ -190,7 +190,7 @@ $configuration = new Configuration();
 $client = new Client($configuration, true);
 
 // Initialize the API
-$api = new ClusterApi($client);
+$api = new CoreApi($client);
 
 // Create the request
 $login = (new Login())
@@ -214,9 +214,9 @@ Some properties should contain certain values. These values can be found in the 
 
 ### Exceptions
 
-In case of errors, the client throws an exception which extends `ClusterApiException`.
+In case of errors, the client throws an exception which extends `CoreApiException`.
 
-All exceptions have a code. These can be found in the `ClusterApiException` class.
+All exceptions have a code. These can be found in the `CoreApiException` class.
 
 ### Laravel
 

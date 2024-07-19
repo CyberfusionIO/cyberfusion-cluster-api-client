@@ -1,8 +1,8 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Support;
+namespace Cyberfusion\CoreApi\Support;
 
-use Cyberfusion\ClusterApi\Exceptions\ValidationException;
+use Cyberfusion\CoreApi\Exceptions\ValidationException;
 use Ramsey\Uuid\Uuid;
 
 class Validator

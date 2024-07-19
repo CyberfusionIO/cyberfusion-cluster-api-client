@@ -1,11 +1,11 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Models;
+namespace Cyberfusion\CoreApi\Models;
 
 use ArrayObject;
-use Cyberfusion\ClusterApi\Enums\NodeGroup;
-use Cyberfusion\ClusterApi\Support\Arr;
-use Cyberfusion\ClusterApi\Support\Validator;
+use Cyberfusion\CoreApi\Enums\NodeGroup;
+use Cyberfusion\CoreApi\Support\Arr;
+use Cyberfusion\CoreApi\Support\Validator;
 
 class Node extends ClusterModel
 {

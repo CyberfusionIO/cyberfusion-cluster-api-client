@@ -1,18 +1,18 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Endpoints;
+namespace Cyberfusion\CoreApi\Endpoints;
 
-use Cyberfusion\ClusterApi\Exceptions\RequestException;
-use Cyberfusion\ClusterApi\Models\BorgArchive;
-use Cyberfusion\ClusterApi\Models\BorgArchiveContent;
-use Cyberfusion\ClusterApi\Models\BorgArchiveDatabaseCreation;
-use Cyberfusion\ClusterApi\Models\BorgArchiveMetadata;
-use Cyberfusion\ClusterApi\Models\BorgArchiveUnixUserCreation;
-use Cyberfusion\ClusterApi\Models\TaskCollection;
-use Cyberfusion\ClusterApi\Request;
-use Cyberfusion\ClusterApi\Response;
-use Cyberfusion\ClusterApi\Support\ListFilter;
-use Cyberfusion\ClusterApi\Support\Str;
+use Cyberfusion\CoreApi\Exceptions\RequestException;
+use Cyberfusion\CoreApi\Models\BorgArchive;
+use Cyberfusion\CoreApi\Models\BorgArchiveContent;
+use Cyberfusion\CoreApi\Models\BorgArchiveDatabaseCreation;
+use Cyberfusion\CoreApi\Models\BorgArchiveMetadata;
+use Cyberfusion\CoreApi\Models\BorgArchiveUnixUserCreation;
+use Cyberfusion\CoreApi\Models\TaskCollection;
+use Cyberfusion\CoreApi\Request;
+use Cyberfusion\CoreApi\Response;
+use Cyberfusion\CoreApi\Support\ListFilter;
+use Cyberfusion\CoreApi\Support\Str;
 
 class BorgArchives extends Endpoint
 {

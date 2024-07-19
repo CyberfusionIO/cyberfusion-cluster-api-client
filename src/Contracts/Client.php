@@ -1,10 +1,10 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Contracts;
+namespace Cyberfusion\CoreApi\Contracts;
 
-use Cyberfusion\ClusterApi\Exceptions\RequestException;
-use Cyberfusion\ClusterApi\Request;
-use Cyberfusion\ClusterApi\Response;
+use Cyberfusion\CoreApi\Exceptions\RequestException;
+use Cyberfusion\CoreApi\Request;
+use Cyberfusion\CoreApi\Response;
 
 interface Client
 {

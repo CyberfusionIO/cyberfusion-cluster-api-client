@@ -1,12 +1,12 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Endpoints;
+namespace Cyberfusion\CoreApi\Endpoints;
 
-use Cyberfusion\ClusterApi\Exceptions\RequestException;
-use Cyberfusion\ClusterApi\Models\UrlRedirect;
-use Cyberfusion\ClusterApi\Request;
-use Cyberfusion\ClusterApi\Response;
-use Cyberfusion\ClusterApi\Support\ListFilter;
+use Cyberfusion\CoreApi\Exceptions\RequestException;
+use Cyberfusion\CoreApi\Models\UrlRedirect;
+use Cyberfusion\CoreApi\Request;
+use Cyberfusion\CoreApi\Response;
+use Cyberfusion\CoreApi\Support\ListFilter;
 
 class UrlRedirects extends Endpoint
 {

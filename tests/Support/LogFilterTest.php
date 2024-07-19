@@ -1,9 +1,9 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Tests\Support;
+namespace Cyberfusion\CoreApi\Tests\Support;
 
-use Cyberfusion\ClusterApi\Enums\Sort;
-use Cyberfusion\ClusterApi\Support\LogFilter;
+use Cyberfusion\CoreApi\Enums\Sort;
+use Cyberfusion\CoreApi\Support\LogFilter;
 use Illuminate\Support\Carbon;
 use PHPUnit\Framework\TestCase;
 

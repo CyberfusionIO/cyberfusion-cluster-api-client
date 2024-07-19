@@ -1,6 +1,6 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Models;
+namespace Cyberfusion\CoreApi\Models;
 
 class Login extends ClusterModel
 {

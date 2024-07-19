@@ -1,9 +1,9 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Support;
+namespace Cyberfusion\CoreApi\Support;
 
-use Cyberfusion\ClusterApi\Enums\Sort;
-use Cyberfusion\ClusterApi\Exceptions\ListFilterException;
+use Cyberfusion\CoreApi\Enums\Sort;
+use Cyberfusion\CoreApi\Exceptions\ListFilterException;
 
 class SortEntry
 {

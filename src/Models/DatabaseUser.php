@@ -1,11 +1,11 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Models;
+namespace Cyberfusion\CoreApi\Models;
 
-use Cyberfusion\ClusterApi\Enums\DatabaseEngine;
-use Cyberfusion\ClusterApi\Enums\Host;
-use Cyberfusion\ClusterApi\Support\Arr;
-use Cyberfusion\ClusterApi\Support\Validator;
+use Cyberfusion\CoreApi\Enums\DatabaseEngine;
+use Cyberfusion\CoreApi\Enums\Host;
+use Cyberfusion\CoreApi\Support\Arr;
+use Cyberfusion\CoreApi\Support\Validator;
 
 class DatabaseUser extends ClusterModel
 {

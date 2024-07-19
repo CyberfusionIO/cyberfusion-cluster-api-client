@@ -1,11 +1,11 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Endpoints;
+namespace Cyberfusion\CoreApi\Endpoints;
 
-use Cyberfusion\ClusterApi\Contracts\Client as ClientContract;
-use Cyberfusion\ClusterApi\Contracts\Model;
-use Cyberfusion\ClusterApi\Exceptions\RequestException;
-use Cyberfusion\ClusterApi\Support\Arr;
+use Cyberfusion\CoreApi\Contracts\Client as ClientContract;
+use Cyberfusion\CoreApi\Contracts\Model;
+use Cyberfusion\CoreApi\Exceptions\RequestException;
+use Cyberfusion\CoreApi\Support\Arr;
 
 abstract class Endpoint
 {

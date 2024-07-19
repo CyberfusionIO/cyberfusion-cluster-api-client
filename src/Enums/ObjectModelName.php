@@ -1,6 +1,6 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Enums;
+namespace Cyberfusion\CoreApi\Enums;
 
 class ObjectModelName
 {

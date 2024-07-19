@@ -1,9 +1,9 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Models;
+namespace Cyberfusion\CoreApi\Models;
 
-use Cyberfusion\ClusterApi\Enums\HealthStatus;
-use Cyberfusion\ClusterApi\Support\Arr;
+use Cyberfusion\CoreApi\Enums\HealthStatus;
+use Cyberfusion\CoreApi\Support\Arr;
 
 class Health extends ClusterModel
 {

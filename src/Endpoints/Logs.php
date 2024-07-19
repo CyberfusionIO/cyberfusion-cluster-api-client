@@ -1,13 +1,13 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Endpoints;
+namespace Cyberfusion\CoreApi\Endpoints;
 
-use Cyberfusion\ClusterApi\Exceptions\RequestException;
-use Cyberfusion\ClusterApi\Models\AccessLog;
-use Cyberfusion\ClusterApi\Models\ErrorLog;
-use Cyberfusion\ClusterApi\Request;
-use Cyberfusion\ClusterApi\Response;
-use Cyberfusion\ClusterApi\Support\LogFilter;
+use Cyberfusion\CoreApi\Exceptions\RequestException;
+use Cyberfusion\CoreApi\Models\AccessLog;
+use Cyberfusion\CoreApi\Models\ErrorLog;
+use Cyberfusion\CoreApi\Request;
+use Cyberfusion\CoreApi\Response;
+use Cyberfusion\CoreApi\Support\LogFilter;
 
 class Logs extends Endpoint
 {

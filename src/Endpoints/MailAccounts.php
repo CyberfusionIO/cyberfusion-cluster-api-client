@@ -1,14 +1,14 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Endpoints;
+namespace Cyberfusion\CoreApi\Endpoints;
 
-use Cyberfusion\ClusterApi\Enums\TimeUnit;
-use Cyberfusion\ClusterApi\Exceptions\RequestException;
-use Cyberfusion\ClusterApi\Models\MailAccount;
-use Cyberfusion\ClusterApi\Models\MailAccountUsage;
-use Cyberfusion\ClusterApi\Request;
-use Cyberfusion\ClusterApi\Response;
-use Cyberfusion\ClusterApi\Support\ListFilter;
+use Cyberfusion\CoreApi\Enums\TimeUnit;
+use Cyberfusion\CoreApi\Exceptions\RequestException;
+use Cyberfusion\CoreApi\Models\MailAccount;
+use Cyberfusion\CoreApi\Models\MailAccountUsage;
+use Cyberfusion\CoreApi\Request;
+use Cyberfusion\CoreApi\Response;
+use Cyberfusion\CoreApi\Support\ListFilter;
 use DateTimeInterface;
 
 class MailAccounts extends Endpoint

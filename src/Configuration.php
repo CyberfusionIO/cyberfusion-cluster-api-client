@@ -1,10 +1,10 @@
 <?php
 
-namespace Cyberfusion\ClusterApi;
+namespace Cyberfusion\CoreApi;
 
 class Configuration
 {
-    private const URL_PRODUCTION = 'https://cluster-api.cyberfusion.nl/api/v1/';
+    private const URL_PRODUCTION = 'https://core-api.cyberfusion.io/api/v1/';
 
     private string $url = self::URL_PRODUCTION;
     private ?string $username = null;

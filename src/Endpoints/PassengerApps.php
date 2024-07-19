@@ -1,14 +1,14 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Endpoints;
+namespace Cyberfusion\CoreApi\Endpoints;
 
-use Cyberfusion\ClusterApi\Exceptions\RequestException;
-use Cyberfusion\ClusterApi\Models\PassengerApp;
-use Cyberfusion\ClusterApi\Models\TaskCollection;
-use Cyberfusion\ClusterApi\Request;
-use Cyberfusion\ClusterApi\Response;
-use Cyberfusion\ClusterApi\Support\ListFilter;
-use Cyberfusion\ClusterApi\Support\Str;
+use Cyberfusion\CoreApi\Exceptions\RequestException;
+use Cyberfusion\CoreApi\Models\PassengerApp;
+use Cyberfusion\CoreApi\Models\TaskCollection;
+use Cyberfusion\CoreApi\Request;
+use Cyberfusion\CoreApi\Response;
+use Cyberfusion\CoreApi\Support\ListFilter;
+use Cyberfusion\CoreApi\Support\Str;
 
 class PassengerApps extends Endpoint
 {

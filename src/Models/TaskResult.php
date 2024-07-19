@@ -1,9 +1,9 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Models;
+namespace Cyberfusion\CoreApi\Models;
 
-use Cyberfusion\ClusterApi\Enums\TaskState;
-use Cyberfusion\ClusterApi\Support\Validator;
+use Cyberfusion\CoreApi\Enums\TaskState;
+use Cyberfusion\CoreApi\Support\Validator;
 use Illuminate\Support\Arr;
 
 class TaskResult extends ClusterModel

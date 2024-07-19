@@ -1,12 +1,12 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Models;
+namespace Cyberfusion\CoreApi\Models;
 
-use Cyberfusion\ClusterApi\Contracts\Model;
-use Cyberfusion\ClusterApi\Exceptions\ListFilterException;
-use Cyberfusion\ClusterApi\Exceptions\ModelException;
-use Cyberfusion\ClusterApi\Support\ListFilter;
-use Cyberfusion\ClusterApi\Support\Str;
+use Cyberfusion\CoreApi\Contracts\Model;
+use Cyberfusion\CoreApi\Exceptions\ListFilterException;
+use Cyberfusion\CoreApi\Exceptions\ModelException;
+use Cyberfusion\CoreApi\Support\ListFilter;
+use Cyberfusion\CoreApi\Support\Str;
 use JsonSerializable;
 
 abstract class ClusterModel implements JsonSerializable, Model

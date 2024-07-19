@@ -1,14 +1,14 @@
 <?php
 
-namespace Cyberfusion\ClusterApi;
+namespace Cyberfusion\CoreApi;
 
-use Cyberfusion\ClusterApi\Contracts\Client as ClientContract;
-use Cyberfusion\ClusterApi\Endpoints\Health;
-use Cyberfusion\ClusterApi\Exceptions\ClientException;
-use Cyberfusion\ClusterApi\Exceptions\ClusterApiException;
-use Cyberfusion\ClusterApi\Exceptions\RequestException;
-use Cyberfusion\ClusterApi\Models\DetailMessage;
-use Cyberfusion\ClusterApi\Models\HttpValidationError;
+use Cyberfusion\CoreApi\Contracts\Client as ClientContract;
+use Cyberfusion\CoreApi\Endpoints\Health;
+use Cyberfusion\CoreApi\Exceptions\ClientException;
+use Cyberfusion\CoreApi\Exceptions\CoreApiException;
+use Cyberfusion\CoreApi\Exceptions\RequestException;
+use Cyberfusion\CoreApi\Models\DetailMessage;
+use Cyberfusion\CoreApi\Models\HttpValidationError;
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -20,15 +20,15 @@ class Client implements ClientContract
 
     private const TIMEOUT = 180;
 
-    private const VERSION = '1.113.1';
+    private const VERSION = '2.0';
 
-    private const USER_AGENT = 'cyberfusion-cluster-api-client/' . self::VERSION;
+    private const USER_AGENT = 'cyberfusion-core-api-client/' . self::VERSION;
 
     private ClientInterface $httpClient;
 
     /**
      * @throws ClientException
-     * @throws ClusterApiException
+     * @throws CoreApiException
      */
     public function __construct(
         private Configuration $configuration,

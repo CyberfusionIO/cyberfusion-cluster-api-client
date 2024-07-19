@@ -1,10 +1,10 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Models;
+namespace Cyberfusion\CoreApi\Models;
 
-use Cyberfusion\ClusterApi\Enums\ProviderNames;
-use Cyberfusion\ClusterApi\Support\Arr;
-use Cyberfusion\ClusterApi\Support\Validator;
+use Cyberfusion\CoreApi\Enums\ProviderNames;
+use Cyberfusion\CoreApi\Support\Arr;
+use Cyberfusion\CoreApi\Support\Validator;
 
 class CertificateManager extends ClusterModel
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Contracts;
+namespace Cyberfusion\CoreApi\Contracts;
 
 interface Model
 {

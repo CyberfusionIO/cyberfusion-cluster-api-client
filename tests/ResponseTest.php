@@ -1,8 +1,8 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Tests;
+namespace Cyberfusion\CoreApi\Tests;
 
-use Cyberfusion\ClusterApi\Response;
+use Cyberfusion\CoreApi\Response;
 use PHPUnit\Framework\TestCase;
 
 class ResponseTest extends TestCase

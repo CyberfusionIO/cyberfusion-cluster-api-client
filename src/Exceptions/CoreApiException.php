@@ -1,10 +1,10 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Exceptions;
+namespace Cyberfusion\CoreApi\Exceptions;
 
 use Exception;
 
-class ClusterApiException extends Exception
+class CoreApiException extends Exception
 {
     protected const AUTHENTICATION_REQUIRED = 100;
     protected const AUTHENTICATION_FAILED = 101;

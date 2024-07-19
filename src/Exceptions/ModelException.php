@@ -1,10 +1,10 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Exceptions;
+namespace Cyberfusion\CoreApi\Exceptions;
 
 use Throwable;
 
-class ModelException extends ClusterApiException
+class ModelException extends CoreApiException
 {
     public static function propertyNotAvailable(string $property, Throwable $previous = null): self
     {

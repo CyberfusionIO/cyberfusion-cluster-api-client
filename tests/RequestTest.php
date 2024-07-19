@@ -1,8 +1,8 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Tests;
+namespace Cyberfusion\CoreApi\Tests;
 
-use Cyberfusion\ClusterApi\Request;
+use Cyberfusion\CoreApi\Request;
 use PHPUnit\Framework\TestCase;
 
 class RequestTest extends TestCase

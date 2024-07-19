@@ -1,10 +1,10 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Exceptions;
+namespace Cyberfusion\CoreApi\Exceptions;
 
 use Throwable;
 
-class ListFilterException extends ClusterApiException
+class ListFilterException extends CoreApiException
 {
     public static function invalidModel(Throwable $previous = null): self
     {

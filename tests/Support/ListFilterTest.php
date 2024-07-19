@@ -1,10 +1,10 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Tests\Support;
+namespace Cyberfusion\CoreApi\Tests\Support;
 
-use Cyberfusion\ClusterApi\Support\FilterEntry;
-use Cyberfusion\ClusterApi\Support\ListFilter;
-use Cyberfusion\ClusterApi\Support\SortEntry;
+use Cyberfusion\CoreApi\Support\FilterEntry;
+use Cyberfusion\CoreApi\Support\ListFilter;
+use Cyberfusion\CoreApi\Support\SortEntry;
 use PHPUnit\Framework\TestCase;
 
 class ListFilterTest extends TestCase

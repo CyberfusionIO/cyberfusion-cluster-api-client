@@ -1,13 +1,13 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Endpoints;
+namespace Cyberfusion\CoreApi\Endpoints;
 
-use Cyberfusion\ClusterApi\Exceptions\RequestException;
-use Cyberfusion\ClusterApi\Models\Login;
-use Cyberfusion\ClusterApi\Models\Token;
-use Cyberfusion\ClusterApi\Models\UserInfo;
-use Cyberfusion\ClusterApi\Request;
-use Cyberfusion\ClusterApi\Response;
+use Cyberfusion\CoreApi\Exceptions\RequestException;
+use Cyberfusion\CoreApi\Models\Login;
+use Cyberfusion\CoreApi\Models\Token;
+use Cyberfusion\CoreApi\Models\UserInfo;
+use Cyberfusion\CoreApi\Request;
+use Cyberfusion\CoreApi\Response;
 
 class Authentication extends Endpoint
 {

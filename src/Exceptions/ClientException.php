@@ -1,10 +1,10 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Exceptions;
+namespace Cyberfusion\CoreApi\Exceptions;
 
 use Throwable;
 
-class ClientException extends ClusterApiException
+class ClientException extends CoreApiException
 {
     public static function authenticationMissing(Throwable $previous = null): self
     {

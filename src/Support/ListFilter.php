@@ -1,12 +1,12 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Support;
+namespace Cyberfusion\CoreApi\Support;
 
-use Cyberfusion\ClusterApi\Contracts\Filter;
-use Cyberfusion\ClusterApi\Contracts\Model;
-use Cyberfusion\ClusterApi\Enums\Limit;
-use Cyberfusion\ClusterApi\Enums\Sort;
-use Cyberfusion\ClusterApi\Exceptions\ListFilterException;
+use Cyberfusion\CoreApi\Contracts\Filter;
+use Cyberfusion\CoreApi\Contracts\Model;
+use Cyberfusion\CoreApi\Enums\Limit;
+use Cyberfusion\CoreApi\Enums\Sort;
+use Cyberfusion\CoreApi\Exceptions\ListFilterException;
 use ReflectionClass;
 use ReflectionException;
 use ReflectionProperty;

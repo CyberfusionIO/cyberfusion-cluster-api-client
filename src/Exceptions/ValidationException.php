@@ -1,10 +1,10 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Exceptions;
+namespace Cyberfusion\CoreApi\Exceptions;
 
 use Throwable;
 
-class ValidationException extends ClusterApiException
+class ValidationException extends CoreApiException
 {
     public static function validationFailed(array $failedValidations = [], Throwable $previous = null): self
     {

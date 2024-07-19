@@ -1,10 +1,10 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Models;
+namespace Cyberfusion\CoreApi\Models;
 
-use Cyberfusion\ClusterApi\Enums\RedisInstanceEvictionPolicy;
-use Cyberfusion\ClusterApi\Support\Arr;
-use Cyberfusion\ClusterApi\Support\Validator;
+use Cyberfusion\CoreApi\Enums\RedisInstanceEvictionPolicy;
+use Cyberfusion\CoreApi\Support\Arr;
+use Cyberfusion\CoreApi\Support\Validator;
 
 class RedisInstance extends ClusterModel
 {

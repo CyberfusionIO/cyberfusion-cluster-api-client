@@ -1,16 +1,16 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Endpoints;
+namespace Cyberfusion\CoreApi\Endpoints;
 
-use Cyberfusion\ClusterApi\Exceptions\RequestException;
-use Cyberfusion\ClusterApi\Models\Customer;
-use Cyberfusion\ClusterApi\Models\HostIpAddress;
-use Cyberfusion\ClusterApi\Models\IpAddressCreate;
-use Cyberfusion\ClusterApi\Models\IpAddressProduct;
-use Cyberfusion\ClusterApi\Models\TaskCollection;
-use Cyberfusion\ClusterApi\Request;
-use Cyberfusion\ClusterApi\Response;
-use Cyberfusion\ClusterApi\Support\ListFilter;
+use Cyberfusion\CoreApi\Exceptions\RequestException;
+use Cyberfusion\CoreApi\Models\Customer;
+use Cyberfusion\CoreApi\Models\HostIpAddress;
+use Cyberfusion\CoreApi\Models\IpAddressCreate;
+use Cyberfusion\CoreApi\Models\IpAddressProduct;
+use Cyberfusion\CoreApi\Models\TaskCollection;
+use Cyberfusion\CoreApi\Request;
+use Cyberfusion\CoreApi\Response;
+use Cyberfusion\CoreApi\Support\ListFilter;
 
 class Customers extends Endpoint
 {

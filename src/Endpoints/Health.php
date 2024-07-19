@@ -1,11 +1,11 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Endpoints;
+namespace Cyberfusion\CoreApi\Endpoints;
 
-use Cyberfusion\ClusterApi\Exceptions\RequestException;
-use Cyberfusion\ClusterApi\Models\Health as HealthModel;
-use Cyberfusion\ClusterApi\Request;
-use Cyberfusion\ClusterApi\Response;
+use Cyberfusion\CoreApi\Exceptions\RequestException;
+use Cyberfusion\CoreApi\Models\Health as HealthModel;
+use Cyberfusion\CoreApi\Request;
+use Cyberfusion\CoreApi\Response;
 
 class Health extends Endpoint
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Support;
+namespace Cyberfusion\CoreApi\Support;
 
 class Str extends \Illuminate\Support\Str
 {

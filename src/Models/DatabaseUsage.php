@@ -1,8 +1,8 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Models;
+namespace Cyberfusion\CoreApi\Models;
 
-use Cyberfusion\ClusterApi\Support\Arr;
+use Cyberfusion\CoreApi\Support\Arr;
 
 class DatabaseUsage extends ClusterModel
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Support;
+namespace Cyberfusion\CoreApi\Support;
 
 class Arr extends \Illuminate\Support\Arr
 {

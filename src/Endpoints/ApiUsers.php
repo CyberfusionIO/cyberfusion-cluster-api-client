@@ -1,10 +1,10 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Endpoints;
+namespace Cyberfusion\CoreApi\Endpoints;
 
-use Cyberfusion\ClusterApi\Exceptions\RequestException;
-use Cyberfusion\ClusterApi\Request;
-use Cyberfusion\ClusterApi\Response;
+use Cyberfusion\CoreApi\Exceptions\RequestException;
+use Cyberfusion\CoreApi\Request;
+use Cyberfusion\CoreApi\Response;
 
 class ApiUsers extends Endpoint
 {

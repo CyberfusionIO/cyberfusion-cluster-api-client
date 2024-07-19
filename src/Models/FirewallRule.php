@@ -1,11 +1,11 @@
 <?php
 
-namespace Cyberfusion\ClusterApi\Models;
+namespace Cyberfusion\CoreApi\Models;
 
-use Cyberfusion\ClusterApi\Enums\FirewallRuleExternalProviderName;
-use Cyberfusion\ClusterApi\Enums\FirewallRuleServiceName;
-use Cyberfusion\ClusterApi\Support\Arr;
-use Cyberfusion\ClusterApi\Support\Validator;
+use Cyberfusion\CoreApi\Enums\FirewallRuleExternalProviderName;
+use Cyberfusion\CoreApi\Enums\FirewallRuleServiceName;
+use Cyberfusion\CoreApi\Support\Arr;
+use Cyberfusion\CoreApi\Support\Validator;
 
 class FirewallRule extends ClusterModel
 {
