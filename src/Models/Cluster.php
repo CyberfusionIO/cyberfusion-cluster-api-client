@@ -817,17 +817,17 @@ class Cluster extends ClusterModel
             ->setSiteId(Arr::get($data, 'site_id'))
             ->setDescription(Arr::get($data, 'description'))
             ->setGrafanaDomain(Arr::get($data, 'grafana_domain'))
-            ->setSingleStoreStudioDomain(Arr::get($data, 'single_store_studio_domain'))
-            ->setSingleStoreApiDomain(Arr::get($data, 'single_store_api_domain'))
-            ->setSingleStoreLicenseKey(Arr::get($data, 'single_store_license_key'))
-            ->setSingleStoreRootPassword(Arr::get($data, 'single_store_root_password'))
+            ->setSingleStoreStudioDomain(Arr::get($data, 'singlestore_studio_domain'))
+            ->setSingleStoreApiDomain(Arr::get($data, 'singlestore_api_domain'))
+            ->setSingleStoreLicenseKey(Arr::get($data, 'singlestore_license_key'))
+            ->setSingleStoreRootPassword(Arr::get($data, 'singlestore_root_password'))
             ->setElasticsearchDefaultUsersPassword(Arr::get($data, 'elastisearch_default_users_password'))
-            ->setRabbitMqErlangCookie(Arr::get($data, 'rabbit_mq_erlang_cookie'))
-            ->setRabbitMqAdminPassword(Arr::get($data, 'rabbit_mq_admin_password'))
+            ->setRabbitMqErlangCookie(Arr::get($data, 'rabbitmq_erlang_cookie'))
+            ->setRabbitMqAdminPassword(Arr::get($data, 'rabbitmq_admin_password'))
             ->setMetabaseDomain(Arr::get($data, 'metabase_domain'))
             ->setMetabaseDatabasePassword(Arr::get($data, 'metabase_database_password'))
             ->setKibanaDomain(Arr::get($data, 'kibana_domain'))
-            ->setRabbitMqManagementDomain(Arr::get($data, 'rabbit_mq_management_domain'))
+            ->setRabbitMqManagementDomain(Arr::get($data, 'rabbitmq_management_domain'))
             ->setId(Arr::get($data, 'id'))
             ->setCreatedAt(Arr::get($data, 'created_at'))
             ->setUpdatedAt(Arr::get($data, 'updated_at'));
@@ -877,17 +877,17 @@ class Cluster extends ClusterModel
             'firewall_rules_external_providers_enabled' => $this->getFirewallRulesExternalProvidersEnabled(),
             'site_id' => $this->getSiteId(),
             'grafana_domain' => $this->getGrafanaDomain(),
-            'single_store_studio_domain' => $this->getSingleStoreStudioDomain(),
-            'single_store_api_domain' => $this->getSingleStoreApiDomain(),
-            'single_store_license_key' => $this->getSingleStoreLicenseKey(),
-            'single_store_root_password' => $this->getSingleStoreRootPassword(),
+            'singlestore_studio_domain' => $this->getSingleStoreStudioDomain(),
+            'singlestore_api_domain' => $this->getSingleStoreApiDomain(),
+            'singlestore_license_key' => $this->getSingleStoreLicenseKey(),
+            'singlestore_root_password' => $this->getSingleStoreRootPassword(),
             'elasticsearch_default_users_password' => $this->getElasticsearchDefaultUsersPassword(),
-            'rabbit_mq_erlang_cookie' => $this->getRabbitMqErlangCookie(),
-            'rabbit_mq_admin_password' => $this->getRabbitMqAdminPassword(),
+            'rabbitmq_erlang_cookie' => $this->getRabbitMqErlangCookie(),
+            'rabbitmq_admin_password' => $this->getRabbitMqAdminPassword(),
             'metabase_domain' => $this->getMetabaseDomain(),
             'metabase_database_password' => $this->getMetabaseDatabasePassword(),
             'kibana_domain' => $this->getKibanaDomain(),
-            'rabbit_mq_management_domain' => $this->getRabbitMqManagementDomain(),
+            'rabbitmq_management_domain' => $this->getRabbitMqManagementDomain(),
             'id' => $this->getId(),
             'created_at' => $this->getCreatedAt(),
             'updated_at' => $this->getUpdatedAt(),
