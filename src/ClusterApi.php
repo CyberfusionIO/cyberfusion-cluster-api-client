@@ -54,7 +54,7 @@ use Cyberfusion\ClusterApi\Endpoints\VirtualHosts;
 
 class ClusterApi
 {
-    public function __construct(private ClientContract $client)
+    public function __construct(private readonly ClientContract $client)
     {
     }
 

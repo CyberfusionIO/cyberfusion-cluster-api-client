@@ -19,21 +19,19 @@ class Client implements ClientContract
     private const CONNECT_TIMEOUT = 60;
 
     private const TIMEOUT = 180;
-  
-    private const VERSION = '1.117.1';
+
+    private const VERSION = '1.118.0';
 
     private const USER_AGENT = 'cyberfusion-cluster-api-client/' . self::VERSION;
-
-    private ClientInterface $httpClient;
 
     /**
      * @throws ClientException
      * @throws ClusterApiException
      */
     public function __construct(
-        private Configuration $configuration,
+        private readonly Configuration $configuration,
         bool $manuallyAuthenticate = false,
-        ClientInterface $httpClient = null
+        private ?ClientInterface $httpClient = null
     ) {
         // Initialize the HTTP client
         $this->initHttpClient($httpClient);
@@ -52,21 +50,17 @@ class Client implements ClientContract
     /**
      * Initialize the HTTP client with default configuration which is used for every request.
      */
-    private function initHttpClient(ClientInterface $httpClient = null): void
+    private function initHttpClient(?ClientInterface $httpClient = null): void
     {
-        if ($httpClient instanceof ClientInterface) {
-            $this->httpClient = $httpClient;
-
-            return;
+        if (!$httpClient instanceof ClientInterface) {
+            $this->httpClient = new GuzzleClient([
+                'timeout' => self::TIMEOUT,
+                'connect_timeout' => self::CONNECT_TIMEOUT,
+                'headers' => [
+                    'User-Agent' => self::USER_AGENT,
+                ]
+            ]);
         }
-
-        $this->httpClient = new GuzzleClient([
-            'timeout' => self::TIMEOUT,
-            'connect_timeout' => self::CONNECT_TIMEOUT,
-            'headers' => [
-                'User-Agent' => self::USER_AGENT,
-            ]
-        ]);
     }
 
     /**

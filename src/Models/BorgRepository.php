@@ -64,7 +64,7 @@ class BorgRepository extends ClusterModel
         return $this->keepHourly;
     }
 
-    public function setKeepHourly(int $keepHourly = null): self
+    public function setKeepHourly(?int $keepHourly = null): self
     {
         $this->keepHourly = $keepHourly;
 
@@ -76,7 +76,7 @@ class BorgRepository extends ClusterModel
         return $this->keepDaily;
     }
 
-    public function setKeepDaily(int $keepDaily = null): self
+    public function setKeepDaily(?int $keepDaily = null): self
     {
         $this->keepDaily = $keepDaily;
 
@@ -88,7 +88,7 @@ class BorgRepository extends ClusterModel
         return $this->keepWeekly;
     }
 
-    public function setKeepWeekly(int $keepWeekly = null): self
+    public function setKeepWeekly(?int $keepWeekly = null): self
     {
         $this->keepWeekly = $keepWeekly;
 
@@ -100,7 +100,7 @@ class BorgRepository extends ClusterModel
         return $this->keepMonthly;
     }
 
-    public function setKeepMonthly(int $keepMonthly = null): self
+    public function setKeepMonthly(?int $keepMonthly = null): self
     {
         $this->keepMonthly = $keepMonthly;
 
@@ -112,7 +112,7 @@ class BorgRepository extends ClusterModel
         return $this->keepYearly;
     }
 
-    public function setKeepYearly(int $keepYearly = null): self
+    public function setKeepYearly(?int $keepYearly = null): self
     {
         $this->keepYearly = $keepYearly;
 

@@ -6,6 +6,35 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 this package and not the Core API. See the changelog of the [Core API](https://core-api.cyberfusion.io/redoc#section/Changelog) 
 for detailed information.
 
+## [1.118.0]
+
+### Added
+
+- Add NextCloud endpoints.
+- Add `index` property to `CmsConfigurationContstant` and add it to the request body.
+- Add plugin methods to CMSes endpoint.
+- Add `reference` property to the `TaskCollection` model.
+- Add `deploymentResults` method to the `Cluster` endpoint.
+- Add `ClamAV` as node group.
+- Add `AWS` as option for the `external_provider_name` property of the `FirewallRule` model.
+- Add `name` property to the `BorgArchiveMetadata` model.
+- Add `load_balancing_method` property to the `Cluster` model.
+- Add `load_balancing_method` property to the `HAProxyListen` model.
+- Add compatibility for this client for PHP 8.4.
+
+### Changed
+
+- Update to [API version 1.238.0](https://core-api.cyberfusion.io/redoc#section/Changelog/1.238.0-2024-12-27).
+
+### Fixed
+
+- Fix task collection return when just the `task_collection_uuid` is returned.
+
+### Removed
+
+- Removed the `show_raw_message` parameter from the LogFilter as the raw message is now always returned.
+- Removed the `restore` method of the `CertificateManagers` endpoint as Certificate Manager are no longer soft-deleted.
+
 ## [1.117.1]
 
 ### Fixed

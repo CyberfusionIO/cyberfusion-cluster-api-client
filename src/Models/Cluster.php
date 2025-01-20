@@ -17,6 +17,7 @@ class Cluster extends ClusterModel
     private ?string $mariaDbClusterName = null;
     private array $customPhpModulesNames = [];
     private array $phpSettings = [];
+    private ?string $loadBalancingMethod = null;
     private ?array $httpRetryProperties = null;
     private ?bool $phpIoncubeEnabled = null;
     private ?string $kernelcareLicenseKey = null;
@@ -165,6 +166,18 @@ class Cluster extends ClusterModel
     public function setPhpSettings(array $phpSettings): self
     {
         $this->phpSettings = $phpSettings;
+
+        return $this;
+    }
+
+    public function getLoadBalancingMethod(): ?string
+    {
+        return $this->loadBalancingMethod;
+    }
+
+    public function setLoadBalancingMethod(?string $loadBalancingMethod): self
+    {
+        $this->loadBalancingMethod = $loadBalancingMethod;
 
         return $this;
     }
@@ -786,6 +799,7 @@ class Cluster extends ClusterModel
             ->setMariaDbClusterName(Arr::get($data, 'mariadb_cluster_name'))
             ->setCustomPhpModulesNames(Arr::get($data, 'custom_php_modules_names', []))
             ->setPhpSettings(Arr::get($data, 'php_settings', []))
+            ->setLoadBalancingMethod(Arr::get($data, 'load_balancing_method'))
             ->setHttpRetryProperties(Arr::get($data, 'http_retry_properties'))
             ->setPhpIoncubeEnabled(Arr::get($data, 'php_ioncube_enabled'))
             ->setKernelcareLicenseKey(Arr::get($data, 'kernelcare_license_key'))
@@ -843,6 +857,7 @@ class Cluster extends ClusterModel
             'mariadb_version' => $this->getMariaDbVersion(),
             'mariadb_cluster_name' => $this->getMariaDbClusterName(),
             'php_settings' => new ArrayObject($this->getPhpSettings()),
+            'load_balancing_method' => $this->getLoadBalancingMethod(),
             'http_retry_properties' => $this->getHttpRetryProperties()
                 ? new ArrayObject($this->getHttpRetryProperties())
                 : null,

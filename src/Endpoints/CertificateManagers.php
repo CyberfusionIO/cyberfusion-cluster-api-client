@@ -142,27 +142,6 @@ class CertificateManagers extends Endpoint
     /**
      * @throws RequestException
      */
-    public function restore(int $id): Response
-    {
-        $request = (new Request())
-            ->setMethod(Request::METHOD_POST)
-            ->setUrl(sprintf('certificate-managers/%d/restore', $id));
-
-        $response = $this
-            ->client
-            ->request($request);
-        if (!$response->isSuccess()) {
-            return $response;
-        }
-
-        return $response->setData([
-            'certificateManager' => (new CertificateManager())->fromArray($response->getData()),
-        ]);
-    }
-
-    /**
-     * @throws RequestException
-     */
     public function delete(int $id): Response
     {
         $request = (new Request())

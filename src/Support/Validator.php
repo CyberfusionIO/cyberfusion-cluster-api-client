@@ -29,7 +29,7 @@ class Validator
         return new self($value);
     }
 
-    private function __construct(private mixed $value)
+    private function __construct(private readonly mixed $value)
     {
     }
 

@@ -7,6 +7,7 @@ class NodeGroup
     public const ADMIN = 'Admin';
     public const APACHE = 'Apache';
     public const BORG = 'Borg';
+    public const CLAM_AV = 'ClamAV';
     public const COMPOSER = 'Composer';
     public const DOCKER = 'Docker';
     public const DOVECOT = 'Dovecot';
@@ -41,6 +42,7 @@ class NodeGroup
         self::ADMIN,
         self::APACHE,
         self::BORG,
+        self::CLAM_AV,
         self::COMPOSER,
         self::DOCKER,
         self::DOVECOT,

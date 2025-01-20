@@ -10,10 +10,12 @@ use Cyberfusion\ClusterApi\Models\HostIpAddress;
 use Cyberfusion\ClusterApi\Models\IpAddressCreate;
 use Cyberfusion\ClusterApi\Models\IpAddressProduct;
 use Cyberfusion\ClusterApi\Models\TaskCollection;
+use Cyberfusion\ClusterApi\Models\TaskResult;
 use Cyberfusion\ClusterApi\Models\UnixUsersHomeDirectoryUsage;
 use Cyberfusion\ClusterApi\Request;
 use Cyberfusion\ClusterApi\Response;
 use Cyberfusion\ClusterApi\Support\ListFilter;
+use Cyberfusion\ClusterApi\Support\Str;
 use DateTimeInterface;
 
 class Clusters extends Endpoint
@@ -76,6 +78,7 @@ class Clusters extends Endpoint
             'groups',
             'unix_users_home_directory',
             'php_versions',
+            'load_balancing_method',
             'mariadb_version',
             'mariadb_cluster_name',
             'php_settings',
@@ -132,6 +135,7 @@ class Clusters extends Endpoint
                     'groups',
                     'unix_users_home_directory',
                     'php_versions',
+                    'load_balancing_method',
                     'mariadb_version',
                     'mariadb_cluster_name',
                     'php_settings',
@@ -203,6 +207,7 @@ class Clusters extends Endpoint
             'groups',
             'unix_users_home_directory',
             'php_versions',
+            'load_balancing_method',
             'mariadb_version',
             'mariadb_cluster_name',
             'php_settings',
@@ -262,6 +267,7 @@ class Clusters extends Endpoint
                     'groups',
                     'unix_users_home_directory',
                     'php_versions',
+                    'load_balancing_method',
                     'mariadb_version',
                     'mariadb_cluster_name',
                     'php_settings',
@@ -519,6 +525,33 @@ class Clusters extends Endpoint
             'ipAddressProducts' => array_map(
                 fn (array $data) => (new IpAddressProduct())->fromArray($data),
                 $response->getData()
+            ),
+        ]);
+    }
+
+    public function deploymentResults(int $id, bool $nonRunning = false): Response
+    {
+        $url = Str::optionalQueryParameters(
+            sprintf('clusters/%s/deployment-results', $id),
+            ['get_non_running' => $nonRunning]
+        );
+
+        $request = (new Request())
+            ->setMethod(Request::METHOD_GET)
+            ->setUrl($url);
+
+        $response = $this
+            ->client
+            ->request($request);
+        if (!$response->isSuccess()) {
+            return $response;
+        }
+
+        return $response->setData([
+            'created_at' => $response->getData('created_at'),
+            'taskResults' => array_map(
+                fn (array $data) => (new TaskResult())->fromArray($data),
+                $response->getData('tasks_results')
             ),
         ]);
     }

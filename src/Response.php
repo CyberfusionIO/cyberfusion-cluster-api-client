@@ -4,7 +4,7 @@ namespace Cyberfusion\ClusterApi;
 
 class Response
 {
-    public function __construct(private int $statusCode, private string $statusMessage, private array $data = [])
+    public function __construct(private readonly int $statusCode, private readonly string $statusMessage, private array $data = [])
     {
     }
 

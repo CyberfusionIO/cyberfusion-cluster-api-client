@@ -9,48 +9,42 @@ use PHPUnit\Framework\TestCase;
 
 class LogFilterTest extends TestCase
 {
-    public function testLogFilterDefaults()
+    public function testLogFilterDefaults(): void
     {
         $logFilter = new LogFilter();
 
         $this->assertNull($logFilter->getTimestamp());
         $this->assertSame(100, $logFilter->getLimit());
-        $this->assertFalse($logFilter->isShowRawMessage());
         $this->assertSame(Sort::ASC, $logFilter->getSort());
     }
 
-    public function testLogFilter()
+    public function testLogFilter(): void
     {
         $timestamp = Carbon::today()->subDay();
         $limit = 100;
-        $showRawMessage = true;
 
         $logFilter = (new LogFilter())
             ->setTimestamp($timestamp)
             ->setLimit($limit)
-            ->setShowRawMessage($showRawMessage)
             ->setSort(Sort::DESC);
 
         $this->assertSame($timestamp->format('c'), $logFilter->getTimestamp()->format('c'));
         $this->assertSame(100, $logFilter->getLimit());
-        $this->assertSame($showRawMessage, $logFilter->isShowRawMessage());
         $this->assertSame(Sort::DESC, $logFilter->getSort());
     }
 
-    public function testToQuery()
+    public function testToQuery(): void
     {
         $timestamp = Carbon::today()->subDay();
         $limit = 100;
-        $showRawMessage = true;
 
         $logFilter = (new LogFilter())
             ->setTimestamp($timestamp)
             ->setLimit($limit)
-            ->setShowRawMessage($showRawMessage)
             ->setSort(Sort::DESC);
 
         $this->assertSame(
-            'timestamp=' . $timestamp->format('Y-m-d') . 'T00%3A00%3A00%2B00%3A00&limit=100&sort=DESC&show_raw_message=1',
+            'timestamp=' . $timestamp->format('Y-m-d') . 'T00%3A00%3A00%2B00%3A00&limit=100&sort=DESC',
             $logFilter->toQuery()
         );
     }
