@@ -20,6 +20,7 @@ for detailed information.
 - Add `name` property to the `BorgArchiveMetadata` model.
 - Add `load_balancing_method` property to the `Cluster` model.
 - Add `load_balancing_method` property to the `HAProxyListen` model.
+- Add compatiblity for this client for PHP 8.4.
 
 ### Changed
 

@@ -6,7 +6,7 @@ use Throwable;
 
 class ListFilterException extends ClusterApiException
 {
-    public static function invalidModel(Throwable $previous = null): self
+    public static function invalidModel(?Throwable $previous = null): self
     {
         return new self(
             'The provided model can\'t be use for a filter, the model must implement the `Model` contract',
@@ -15,7 +15,7 @@ class ListFilterException extends ClusterApiException
         );
     }
 
-    public static function unableToDetermineFields(Throwable $previous = null): self
+    public static function unableToDetermineFields(?Throwable $previous = null): self
     {
         return new self(
             'Unable to get the available fields for the model',
@@ -26,7 +26,7 @@ class ListFilterException extends ClusterApiException
 
     public static function invalidSortMethod(
         string $providedSortMethod,
-        Throwable $previous = null
+        ?Throwable $previous = null
     ): self {
         return new self(
             sprintf('The sort method `%s` is not available, use ASC or DESC', $providedSortMethod),
@@ -35,7 +35,7 @@ class ListFilterException extends ClusterApiException
         );
     }
 
-    public static function fieldNotAvailable(string $field, Throwable $previous = null): self
+    public static function fieldNotAvailable(string $field, ?Throwable $previous = null): self
     {
         return new self(
             sprintf('The field `%s` is not available in the model', $field),
@@ -44,7 +44,7 @@ class ListFilterException extends ClusterApiException
         );
     }
 
-    public static function invalidTypeInArray(string $foundType, Throwable $previous = null): self
+    public static function invalidTypeInArray(string $foundType, ?Throwable $previous = null): self
     {
         return new self(
             sprintf(
@@ -56,7 +56,7 @@ class ListFilterException extends ClusterApiException
         );
     }
 
-    public static function arrayEntryKeysInvalid(array $requiredKeys, Throwable $previous = null): self
+    public static function arrayEntryKeysInvalid(array $requiredKeys, ?Throwable $previous = null): self
     {
         return new self(
             sprintf(
