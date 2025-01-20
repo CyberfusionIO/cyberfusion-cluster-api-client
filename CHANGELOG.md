@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 this package and not the Core API. See the changelog of the [Core API](https://core-api.cyberfusion.io/redoc#section/Changelog) 
 for detailed information.
 
+## [1.117.1]
+
+### Fixed
+
+- Fix cluster `create()` and `update()` not working due to incorrect and missing parameters
+
 ## [1.117.0]
 
 ### Added
