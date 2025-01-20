@@ -24,7 +24,7 @@ for detailed information.
 
 ### Changed
 
-- - Update to [API version 1.238.0](https://core-api.cyberfusion.io/redoc#section/Changelog/1.238.0-2024-12-27).
+- Update to [API version 1.238.0](https://core-api.cyberfusion.io/redoc#section/Changelog/1.238.0-2024-12-27).
 
 ### Fixed
 
