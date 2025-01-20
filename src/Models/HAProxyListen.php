@@ -19,6 +19,8 @@ class HAProxyListen extends ClusterModel
 
     private ?string $socketPath = null;
 
+    private ?string $loadBalancingMethod = null;
+
     private int $destinationClusterId;
 
     private int $clusterId;
@@ -111,6 +113,18 @@ class HAProxyListen extends ClusterModel
         return $this;
     }
 
+    public function getLoadBalancingMethod(): ?string
+    {
+        return $this->loadBalancingMethod;
+    }
+
+    public function setLoadBalancingMethod(?string $loadBalancingMethod): self
+    {
+        $this->loadBalancingMethod = $loadBalancingMethod;
+
+        return $this;
+    }
+
     public function getDestinationClusterId(): int
     {
         return $this->destinationClusterId;
@@ -179,6 +193,7 @@ class HAProxyListen extends ClusterModel
             ->setNodesIds(Arr::get($data, 'nodes_ids'))
             ->setPort(Arr::get($data, 'port'))
             ->setSocketPath(Arr::get($data, 'socket_path'))
+            ->setLoadBalancingMethod(Arr::get($data, 'load_balancing_method'))
             ->setDestinationClusterId(Arr::get($data, 'destination_cluster_id'))
             ->setClusterId(Arr::get($data, 'cluster_id'))
             ->setId(Arr::get($data, 'id'))
@@ -194,6 +209,7 @@ class HAProxyListen extends ClusterModel
             'nodes_ids' => $this->getNodesIds(),
             'port' => $this->getPort(),
             'socket_path' => $this->getSocketPath(),
+            'load_balancing_method' => $this->getLoadBalancingMethod(),
             'destination_cluster_id' => $this->getDestinationClusterId(),
             'cluster_id' => $this->getClusterId(),
             'id' => $this->getId(),

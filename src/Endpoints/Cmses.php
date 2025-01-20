@@ -8,6 +8,7 @@ use Cyberfusion\ClusterApi\Models\CmsConfigurationConstant;
 use Cyberfusion\ClusterApi\Models\CmsInstallation;
 use Cyberfusion\ClusterApi\Models\CmsOption;
 use Cyberfusion\ClusterApi\Models\CmsUserCredentials;
+use Cyberfusion\ClusterApi\Models\DetailMessage;
 use Cyberfusion\ClusterApi\Models\TaskCollection;
 use Cyberfusion\ClusterApi\Request;
 use Cyberfusion\ClusterApi\Response;
@@ -285,8 +286,8 @@ class Cmses extends Endpoint
             ->setUrl(sprintf('cmses/%d/configuration-constants/%d', $id, $cmsConfigurationConstant->getName()))
             ->setBody(
                 $this->filterFields($cmsConfigurationConstant->toArray(), [
-                    'name',
                     'value',
+                    'index',
                 ])
             );
 
@@ -431,5 +432,99 @@ class Cmses extends Endpoint
         }
 
         return null;
+    }
+
+    public function plugins(int $id): Response
+    {
+        $request = (new Request())
+            ->setMethod(Request::METHOD_GET)
+            ->setUrl(sprintf('cmses/%d/plugins', $id));
+
+        $response = $this
+            ->client
+            ->request($request);
+        if (!$response->isSuccess()) {
+            return $response;
+        }
+
+        return $response->setData([
+            'plugins' => $response->getData(),
+        ]);
+    }
+
+    public function updateCore(int $id, ?string $callbackUrl = null): Response
+    {
+        $url = Str::optionalQueryParameters(
+            sprintf('cmses/%d/core/update', $id),
+            ['callback_url' => $callbackUrl]
+        );
+
+        $request = (new Request())
+            ->setMethod(Request::METHOD_POST)
+            ->setUrl($url);
+
+        $response = $this
+            ->client
+            ->request($request);
+        if (!$response->isSuccess()) {
+            return $response;
+        }
+
+        return $response->setData([
+            'taskCollection' => (new TaskCollection())->fromArray($response->getData()),
+        ]);
+    }
+
+    public function updatePlugin(int $id, string $name, ?string $callbackUrl = null): Response
+    {
+        $url = Str::optionalQueryParameters(
+            sprintf('cmses/%d/plugins/%s/update', $id, $name),
+            ['callback_url' => $callbackUrl]
+        );
+
+        $request = (new Request())
+            ->setMethod(Request::METHOD_POST)
+            ->setUrl($url);
+
+        $response = $this
+            ->client
+            ->request($request);
+        if (!$response->isSuccess()) {
+            return $response;
+        }
+
+        return $response->setData([
+            'taskCollection' => (new TaskCollection())->fromArray($response->getData()),
+        ]);
+    }
+
+    public function enablePlugin(int $id, string $name): Response
+    {
+        $request = (new Request())
+            ->setMethod(Request::METHOD_POST)
+            ->setUrl(sprintf('cmses/%d/plugins/%s/enable', $id, $name));
+
+        $response = $this
+            ->client
+            ->request($request);
+
+        return $response->setData([
+            'detail' => (new DetailMessage())->fromArray($response->getData()),
+        ]);
+    }
+
+    public function disablePlugin(int $id, string $name): Response
+    {
+        $request = (new Request())
+            ->setMethod(Request::METHOD_POST)
+            ->setUrl(sprintf('cmses/%d/plugins/%s/disable', $id, $name));
+
+        $response = $this
+            ->client
+            ->request($request);
+
+        return $response->setData([
+            'detail' => (new DetailMessage())->fromArray($response->getData()),
+        ]);
     }
 }

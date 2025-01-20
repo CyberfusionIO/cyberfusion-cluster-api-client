@@ -70,6 +70,7 @@ class HAProxyListens extends Endpoint
             'nodes_ids',
             'port',
             'socket_path',
+            'load_balancing_method',
             'destination_cluster_id',
             'cluster_id',
         ]);
@@ -84,6 +85,7 @@ class HAProxyListens extends Endpoint
                     'nodes_ids',
                     'port',
                     'socket_path',
+                    'load_balancing_method',
                     'destination_cluster_id',
                     'cluster_id',
                 ])

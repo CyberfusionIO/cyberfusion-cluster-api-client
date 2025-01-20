@@ -13,7 +13,6 @@ class LogFilter implements Filter
     private ?DateTimeInterface $timestamp = null;
     private int $limit = Limit::DEFAULT_LIMIT;
     private string $sort = Sort::ASC;
-    private bool $showRawMessage = false;
 
     public function getTimestamp(): ?DateTimeInterface
     {
@@ -59,25 +58,12 @@ class LogFilter implements Filter
         return $this;
     }
 
-    public function isShowRawMessage(): bool
-    {
-        return $this->showRawMessage;
-    }
-
-    public function setShowRawMessage(bool $showRawMessage): self
-    {
-        $this->showRawMessage = $showRawMessage;
-
-        return $this;
-    }
-
     public function toQuery(): string
     {
         return http_build_query([
             'timestamp' => $this->timestamp instanceof DateTimeInterface ? $this->timestamp->format('c') : null,
             'limit' => $this->limit,
             'sort' => $this->sort,
-            'show_raw_message' => $this->showRawMessage,
         ]);
     }
 }

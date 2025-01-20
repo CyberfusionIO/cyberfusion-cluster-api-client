@@ -2,6 +2,9 @@
 
 namespace Cyberfusion\ClusterApi\Enums;
 
+/*
+ * @deprecated see 1.231
+ */
 class CmsConfigurationConstantName
 {
     public const DB_NAME = 'DB_NAME';

@@ -13,6 +13,7 @@ class TaskCollection extends ClusterModel
     private string $collectionType;
     private ?int $objectId = null;
     private string $objectModelName;
+    private ?string $reference = null;
     private ?int $id = null;
     private ?int $clusterId = null;
     private ?string $createdAt = null;
@@ -87,6 +88,18 @@ class TaskCollection extends ClusterModel
         return $this;
     }
 
+    public function getReference(): ?string
+    {
+        return $this->reference;
+    }
+
+    public function setReference(?string $reference): self
+    {
+        $this->reference = $reference;
+
+        return $this;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -139,10 +152,11 @@ class TaskCollection extends ClusterModel
     {
         return $this
             ->setUuid(Arr::get($data, 'uuid'))
-            ->setDescription(Arr::get($data, 'description'))
-            ->setCollectionType(Arr::get($data, 'collection_type'))
+            ->setDescription(Arr::get($data, 'description', ''))
+            ->setCollectionType(Arr::get($data, 'collection_type', TaskCollectionType::TYPE_ASYNCHRONOUS))
             ->setObjectId(Arr::get($data, 'object_id'))
             ->setObjectModelName(Arr::get($data, 'object_model_name'))
+            ->setReference(Arr::get($data, 'reference'))
             ->setId(Arr::get($data, 'id'))
             ->setClusterId(Arr::get($data, 'cluster_id'))
             ->setCreatedAt(Arr::get($data, 'created_at'))
@@ -157,6 +171,7 @@ class TaskCollection extends ClusterModel
             'collection_type' => $this->getCollectionType(),
             'object_id' => $this->getObjectId(),
             'object_model_name' => $this->getObjectModelName(),
+            'reference' => $this->getReference(),
             'id' => $this->getId(),
             'cluster_id' => $this->getClusterId(),
             'created_at' => $this->getCreatedAt(),

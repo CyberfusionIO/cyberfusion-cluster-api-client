@@ -19,8 +19,8 @@ class Client implements ClientContract
     private const CONNECT_TIMEOUT = 60;
 
     private const TIMEOUT = 180;
-  
-    private const VERSION = '1.117.1';
+
+    private const VERSION = '1.118.0';
 
     private const USER_AGENT = 'cyberfusion-cluster-api-client/' . self::VERSION;
 
@@ -31,7 +31,7 @@ class Client implements ClientContract
      * @throws ClusterApiException
      */
     public function __construct(
-        private Configuration $configuration,
+        private readonly Configuration $configuration,
         bool $manuallyAuthenticate = false,
         ClientInterface $httpClient = null
     ) {
