@@ -82,7 +82,7 @@ class HAProxyListen extends ClusterModel
         return $this->port;
     }
 
-    public function setPort(int $port = null): self
+    public function setPort(?int $port = null): self
     {
         Validator::value($port)
             ->nullable()
