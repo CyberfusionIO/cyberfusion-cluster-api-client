@@ -52,7 +52,7 @@ class Client implements ClientContract
      */
     private function initHttpClient(?ClientInterface $httpClient = null): void
     {
-        if (! $httpClient instanceof ClientInterface) {
+        if (!$httpClient instanceof ClientInterface) {
             $this->httpClient = new GuzzleClient([
                 'timeout' => self::TIMEOUT,
                 'connect_timeout' => self::CONNECT_TIMEOUT,
