@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 this package and not the Core API. See the changelog of the [Core API](https://core-api.cyberfusion.io/redoc#section/Changelog) 
 for detailed information.
 
+## [1.118.1]
+
+### Fixed
+
+- Allow the host of the database user to be `null` to match the Core API spec.
+
 ## [1.118.0]
 
 ### Added

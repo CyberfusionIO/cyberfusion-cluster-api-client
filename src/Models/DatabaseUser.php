@@ -14,7 +14,7 @@ class DatabaseUser extends ClusterModel
     private string $name;
     private ?string $password;
     private ?array $phpmyadminFirewallGroupsIds = null;
-    private string $host = self::DEFAULT_HOST;
+    private ?string $host = self::DEFAULT_HOST;
     private string $serverSoftwareName = DatabaseEngine::SERVER_SOFTWARE_MARIADB;
     private ?int $id = null;
     private ?int $clusterId = null;
@@ -38,16 +38,17 @@ class DatabaseUser extends ClusterModel
         return $this;
     }
 
-    public function getHost(): string
+    public function getHost(): ?string
     {
         return $this->host;
     }
 
-    public function setHost(string $host): self
+    public function setHost(?string $host): self
     {
         Validator::value($host)
             ->maxLength(253)
             ->valueIn(Host::AVAILABLE)
+            ->nullable()
             ->validate();
 
         $this->host = $host;
