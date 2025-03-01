@@ -15,9 +15,7 @@ class ListFilterTest extends TestCase
 
         $this->assertSame(0, $listFilter->getSkip());
         $this->assertSame(100, $listFilter->getLimit());
-        $this->assertIsArray($listFilter->getFilter());
         $this->assertCount(0, $listFilter->getFilter());
-        $this->assertIsArray($listFilter->getSort());
         $this->assertCount(0, $listFilter->getSort());
     }
 
@@ -40,9 +38,7 @@ class ListFilterTest extends TestCase
 
         $this->assertSame($skip, $listFilter->getSkip());
         $this->assertSame($limit, $listFilter->getLimit());
-        $this->assertIsArray($listFilter->getFilter());
         $this->assertCount(1, $listFilter->getFilter());
-        $this->assertIsArray($listFilter->getSort());
         $this->assertCount(1, $listFilter->getSort());
     }
 
@@ -90,9 +86,7 @@ class ListFilterTest extends TestCase
 
         $this->assertSame($skip, $listFilter->getSkip());
         $this->assertSame($limit, $listFilter->getLimit());
-        $this->assertIsArray($listFilter->getFilter());
         $this->assertCount(1, $listFilter->getFilter());
-        $this->assertIsArray($listFilter->getSort());
         $this->assertCount(1, $listFilter->getSort());
     }
 
