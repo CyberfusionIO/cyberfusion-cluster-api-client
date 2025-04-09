@@ -1,3 +1,17 @@
+# ⚠️ Replaced
+
+Use the new, supported, stable PHP client: [Cyberfusion Core API client](https://github.com/CyberfusionIO/php-core-api-client)
+
+The new client is **auto-generated**, with a much better **developer experience**.
+
+Want to migrate from this client? See the [migration guide](https://github.com/CyberfusionIO/php-core-api-client/blob/main/migration.md).
+
+The current client will be **supported indefinitely**, but **new features** in the Core API will **not be added**.
+As the Core API is still in a state where breaking changes may be made, fixes in this client may be implemented with a delay.
+The new client is always up-to-date, as it is auto-generated. If your code relies on the Core API, please **upgrade to the new client**.
+
+<del>
+
 # Cyberfusion Core API client
 
 Client for the [Cyberfusion Core API](https://core-api.cyberfusion.io/).
@@ -265,3 +279,5 @@ If you discover any security related issues, please email support@cyberfusion.nl
 ## License
 
 This client is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+
+</del>
