@@ -259,7 +259,7 @@ class Clusters extends Endpoint
         ]);
 
         $request = (new Request())
-            ->setMethod(Request::METHOD_PUT)
+            ->setMethod(Request::METHOD_PATCH)
             ->setUrl(sprintf('clusters/%d', $cluster->getId()))
             ->setBody(
                 $this->filterFields($cluster->toArray(), [

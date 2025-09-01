@@ -248,7 +248,7 @@ class Cmses extends Endpoint
         ]);
 
         $request = (new Request())
-            ->setMethod(Request::METHOD_PUT)
+            ->setMethod(Request::METHOD_PATCH)
             ->setUrl(sprintf('cmses/%d/options/%d', $id, $cmsOption->getName()))
             ->setBody(
                 $this->filterFields($cmsOption->toArray(), [
@@ -282,7 +282,7 @@ class Cmses extends Endpoint
         ]);
 
         $request = (new Request())
-            ->setMethod(Request::METHOD_PUT)
+            ->setMethod(Request::METHOD_PATCH)
             ->setUrl(sprintf('cmses/%d/configuration-constants/%d', $id, $cmsConfigurationConstant->getName()))
             ->setBody(
                 $this->filterFields($cmsConfigurationConstant->toArray(), [

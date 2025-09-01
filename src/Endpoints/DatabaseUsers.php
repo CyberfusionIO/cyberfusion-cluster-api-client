@@ -115,7 +115,7 @@ class DatabaseUsers extends Endpoint
         ]);
 
         $request = (new Request())
-            ->setMethod(Request::METHOD_PUT)
+            ->setMethod(Request::METHOD_PATCH)
             ->setUrl(sprintf('database-users/%d', $databaseUser->getId()))
             ->setBody(
                 $this->filterFields($databaseUser->toArray(), [

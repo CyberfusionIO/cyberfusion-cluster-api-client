@@ -131,7 +131,7 @@ class BorgRepositories extends Endpoint
         ]);
 
         $request = (new Request())
-            ->setMethod(Request::METHOD_PUT)
+            ->setMethod(Request::METHOD_PATCH)
             ->setUrl(sprintf('borg-repositories/%d', $borgRepository->getId()))
             ->setBody(
                 $this->filterFields($borgRepository->toArray(), [
