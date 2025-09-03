@@ -156,7 +156,7 @@ class UnixUsers extends Endpoint
         ]);
 
         $request = (new Request())
-            ->setMethod(Request::METHOD_PUT)
+            ->setMethod(Request::METHOD_PATCH)
             ->setUrl(sprintf('unix-users/%d', $unixUser->getId()))
             ->setBody(
                 $this->filterFields($unixUser->toArray(), [

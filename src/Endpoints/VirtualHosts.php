@@ -125,7 +125,7 @@ class VirtualHosts extends Endpoint
         ]);
 
         $request = (new Request())
-            ->setMethod(Request::METHOD_PUT)
+            ->setMethod(Request::METHOD_PATCH)
             ->setUrl(sprintf('virtual-hosts/%d', $virtualHost->getId()))
             ->setBody(
                 $this->filterFields($virtualHost->toArray(), [

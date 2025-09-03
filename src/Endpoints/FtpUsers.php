@@ -111,7 +111,7 @@ class FtpUsers extends Endpoint
         ]);
 
         $request = (new Request())
-            ->setMethod(Request::METHOD_PUT)
+            ->setMethod(Request::METHOD_PATCH)
             ->setUrl(sprintf('ftp-users/%d', $ftpUser->getId()))
             ->setBody(
                 $this->filterFields($ftpUser->toArray(), [

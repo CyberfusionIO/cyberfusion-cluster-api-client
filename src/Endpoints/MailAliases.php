@@ -109,7 +109,7 @@ class MailAliases extends Endpoint
         ]);
 
         $request = (new Request())
-            ->setMethod(Request::METHOD_PUT)
+            ->setMethod(Request::METHOD_PATCH)
             ->setUrl(sprintf('mail-aliases/%d', $mailAlias->getId()))
             ->setBody(
                 $this->filterFields($mailAlias->toArray(), [

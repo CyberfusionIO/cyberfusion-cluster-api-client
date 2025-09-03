@@ -118,7 +118,7 @@ class Databases extends Endpoint
         ]);
 
         $request = (new Request())
-            ->setMethod(Request::METHOD_PUT)
+            ->setMethod(Request::METHOD_PATCH)
             ->setUrl(sprintf('databases/%d', $database->getId()))
             ->setBody(
                 $this->filterFields($database->toArray(), [

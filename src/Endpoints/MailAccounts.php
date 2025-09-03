@@ -143,7 +143,7 @@ class MailAccounts extends Endpoint
         ]);
 
         $request = (new Request())
-            ->setMethod(Request::METHOD_PUT)
+            ->setMethod(Request::METHOD_PATCH)
             ->setUrl(sprintf('mail-accounts/%d', $mailAccount->getId()))
             ->setBody(
                 $this->filterFields($mailAccount->toArray(), [

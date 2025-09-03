@@ -109,7 +109,7 @@ class HtpasswdUsers extends Endpoint
         ]);
 
         $request = (new Request())
-            ->setMethod(Request::METHOD_PUT)
+            ->setMethod(Request::METHOD_PATCH)
             ->setUrl(sprintf('htpasswd-users/%d', $htpasswdUser->getId()))
             ->setBody(
                 $this->filterFields($htpasswdUser->toArray(), [

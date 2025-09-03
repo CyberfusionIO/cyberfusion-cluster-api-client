@@ -116,7 +116,7 @@ class Daemons extends Endpoint
         ]);
 
         $request = (new Request())
-          ->setMethod(Request::METHOD_PUT)
+          ->setMethod(Request::METHOD_PATCH)
           ->setUrl(sprintf('daemons/%d', $daemon->getId()))
           ->setBody(
               $this->filterFields($daemon->toArray(), [

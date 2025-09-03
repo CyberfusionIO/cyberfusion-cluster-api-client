@@ -106,7 +106,7 @@ class FirewallGroups extends Endpoint
         ]);
 
         $request = (new Request())
-            ->setMethod(Request::METHOD_PUT)
+            ->setMethod(Request::METHOD_PATCH)
             ->setUrl(sprintf('firewall-groups/%d', $firewallGroup->getId()))
             ->setBody(
                 $this->filterFields($firewallGroup->toArray(), [

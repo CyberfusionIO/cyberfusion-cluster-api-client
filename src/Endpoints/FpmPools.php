@@ -120,7 +120,7 @@ class FpmPools extends Endpoint
         ]);
 
         $request = (new Request())
-            ->setMethod(Request::METHOD_PUT)
+            ->setMethod(Request::METHOD_PATCH)
             ->setUrl(sprintf('fpm-pools/%d', $fpmPool->getId()))
             ->setBody(
                 $this->filterFields($fpmPool->toArray(), [

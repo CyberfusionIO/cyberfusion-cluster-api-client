@@ -108,7 +108,7 @@ class CustomConfigs extends Endpoint
         ]);
 
         $request = (new Request())
-            ->setMethod(Request::METHOD_PUT)
+            ->setMethod(Request::METHOD_PATCH)
             ->setUrl(sprintf('custom-configs/%d', $customConfig->getId()))
             ->setBody(
                 $this->filterFields($customConfig->toArray(), [

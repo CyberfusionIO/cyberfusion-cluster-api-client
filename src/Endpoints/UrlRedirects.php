@@ -121,7 +121,7 @@ class UrlRedirects extends Endpoint
         ]);
 
         $request = (new Request())
-            ->setMethod(Request::METHOD_PUT)
+            ->setMethod(Request::METHOD_PATCH)
             ->setUrl(sprintf('url-redirects/%d', $urlRedirect->getId()))
             ->setBody(
                 $this->filterFields($urlRedirect->toArray(), [

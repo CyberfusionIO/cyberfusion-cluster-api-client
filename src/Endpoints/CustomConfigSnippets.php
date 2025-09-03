@@ -149,7 +149,7 @@ class CustomConfigSnippets extends Endpoint
         ]);
 
         $request = (new Request())
-            ->setMethod(Request::METHOD_PUT)
+            ->setMethod(Request::METHOD_PATCH)
             ->setUrl(sprintf('custom-config-snippets/%d', $customConfigSnippet->getId()))
             ->setBody(
                 $this->filterFields($customConfigSnippet->toArray(), [

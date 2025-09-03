@@ -110,7 +110,7 @@ class MailDomains extends Endpoint
         ]);
 
         $request = (new Request())
-            ->setMethod(Request::METHOD_PUT)
+            ->setMethod(Request::METHOD_PATCH)
             ->setUrl(sprintf('mail-domains/%d', $mailDomain->getId()))
             ->setBody(
                 $this->filterFields($mailDomain->toArray(), [

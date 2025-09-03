@@ -124,7 +124,7 @@ class SecurityTxtPolicies extends Endpoint
         ]);
 
         $request = (new Request())
-            ->setMethod(Request::METHOD_PUT)
+            ->setMethod(Request::METHOD_PATCH)
             ->setUrl(sprintf('security-txt-policies/%d', $securityTxtPolicy->getId()))
             ->setBody(
                 $this->filterFields($securityTxtPolicy->toArray(), [

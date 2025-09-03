@@ -112,7 +112,7 @@ class CertificateManagers extends Endpoint
         ]);
 
         $request = (new Request())
-            ->setMethod(Request::METHOD_PUT)
+            ->setMethod(Request::METHOD_PATCH)
             ->setUrl(sprintf('certificate-managers/%d', $certificateManager->getId()))
             ->setBody(
                 $this->filterFields($certificateManager->toArray(), [

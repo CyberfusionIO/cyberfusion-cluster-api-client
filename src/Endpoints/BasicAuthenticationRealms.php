@@ -112,7 +112,7 @@ class BasicAuthenticationRealms extends Endpoint
         ]);
 
         $request = (new Request())
-            ->setMethod(Request::METHOD_PUT)
+            ->setMethod(Request::METHOD_PATCH)
             ->setUrl(sprintf('basic-authentication-realms/%d', $basicAuthenticationRealm->getId()))
             ->setBody(
                 $this->filterFields($basicAuthenticationRealm->toArray(), [

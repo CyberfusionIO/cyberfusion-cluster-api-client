@@ -120,7 +120,7 @@ class Crons extends Endpoint
         ]);
 
         $request = (new Request())
-            ->setMethod(Request::METHOD_PUT)
+            ->setMethod(Request::METHOD_PATCH)
             ->setUrl(sprintf('crons/%d', $cron->getId()))
             ->setBody(
                 $this->filterFields($cron->toArray(), [
