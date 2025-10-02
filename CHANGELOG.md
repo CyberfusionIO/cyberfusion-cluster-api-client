@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 this package and not the Core API. See the changelog of the [Core API](https://core-api.cyberfusion.io/redoc#section/Changelog) 
 for detailed information.
 
+## [1.121.0]
+
+### Added
+
+- Add `readPhpProperties`, `createPhpProperties` and `updatePhpProperties` method to the `Clusters` endpoint.
+- Add `readUnixUserProperties` method to the `Clusters` endpoint.
+- Add `readRedisProperties`, `createRedisProperties` and `updateRedisProperties` method to the `Clusters` endpoint.
+
 ## [1.120.0]
 
 ### Changed
