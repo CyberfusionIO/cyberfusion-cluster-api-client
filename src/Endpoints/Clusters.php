@@ -6,6 +6,9 @@ use Cyberfusion\ClusterApi\Enums\TimeUnit;
 use Cyberfusion\ClusterApi\Exceptions\RequestException;
 use Cyberfusion\ClusterApi\Models\Cluster;
 use Cyberfusion\ClusterApi\Models\ClusterCommonProperties;
+use Cyberfusion\ClusterApi\Models\ClusterPhpProperties;
+use Cyberfusion\ClusterApi\Models\ClusterRedisProperties;
+use Cyberfusion\ClusterApi\Models\ClusterUnixUserProperties;
 use Cyberfusion\ClusterApi\Models\HostIpAddress;
 use Cyberfusion\ClusterApi\Models\IpAddressCreate;
 use Cyberfusion\ClusterApi\Models\IpAddressProduct;
@@ -553,6 +556,167 @@ class Clusters extends Endpoint
                 fn (array $data) => (new TaskResult())->fromArray($data),
                 $response->getData('tasks_results')
             ),
+        ]);
+    }
+
+    public function readPhpProperties(int $clusterId): Response
+    {
+        $request = (new Request())
+            ->setMethod(Request::METHOD_GET)
+            ->setUrl(sprintf('clusters/%d/properties/php', $clusterId));
+
+        $response = $this
+            ->client
+            ->request($request);
+        if (!$response->isSuccess()) {
+            return $response;
+        }
+
+        return $response->setData([
+            'properties' => (new ClusterPhpProperties())->fromArray($response->getData()),
+        ]);
+    }
+
+    public function createPhpProperties(int $clusterId, ClusterPhpProperties $properties): Response
+    {
+        $this->validateRequired($properties, 'create', [
+            'php_versions',
+            'custom_php_modules_names',
+            'php_settings',
+            'php_ioncube_enabled',
+            'php_sessions_spread_enabled',
+        ]);
+
+        $request = (new Request())
+            ->setMethod(Request::METHOD_POST)
+            ->setUrl(sprintf('clusters/%d/properties/php', $clusterId))
+            ->setBody($this->filterFields($properties->toArray(), [
+                'php_versions',
+                'custom_php_modules_names',
+                'php_settings',
+                'php_ioncube_enabled',
+                'php_sessions_spread_enabled',
+            ]));
+
+        $response = $this
+            ->client
+            ->request($request);
+        if (!$response->isSuccess()) {
+            return $response;
+        }
+
+        return $response->setData([
+            'properties' => (new ClusterPhpProperties())->fromArray($response->getData()),
+        ]);
+    }
+
+    public function updatePhpProperties(int $clusterId, ClusterPhpProperties $properties): Response
+    {
+        $request = (new Request())
+            ->setMethod(Request::METHOD_PATCH)
+            ->setUrl(sprintf('clusters/%d/properties/php', $clusterId))
+            ->setBody($this->filterFields($properties->toArray(), [
+                'php_versions',
+                'custom_php_modules_names',
+                'php_settings',
+                'php_ioncube_enabled',
+                'php_sessions_spread_enabled',
+            ]));
+
+        $response = $this
+            ->client
+            ->request($request);
+        if (!$response->isSuccess()) {
+            return $response;
+        }
+
+        return $response->setData([
+            'properties' => (new ClusterPhpProperties())->fromArray($response->getData()),
+        ]);
+    }
+
+    public function readUnixUserProperties(int $clusterId): Response
+    {
+        $request = (new Request())
+            ->setMethod(Request::METHOD_GET)
+            ->setUrl(sprintf('clusters/%d/properties/unix-users', $clusterId));
+
+        $response = $this
+            ->client
+            ->request($request);
+        if (!$response->isSuccess()) {
+            return $response;
+        }
+
+        return $response->setData([
+            'properties' => (new ClusterUnixUserProperties())->fromArray($response->getData()),
+        ]);
+    }
+
+    public function readRedisProperties(int $clusterId): Response
+    {
+        $request = (new Request())
+            ->setMethod(Request::METHOD_GET)
+            ->setUrl(sprintf('clusters/%d/properties/redis', $clusterId));
+
+        $response = $this
+            ->client
+            ->request($request);
+        if (!$response->isSuccess()) {
+            return $response;
+        }
+
+        return $response->setData([
+            'properties' => (new ClusterRedisProperties())->fromArray($response->getData()),
+        ]);
+    }
+
+    public function createRedisProperties(int $clusterId, ClusterRedisProperties $properties): Response
+    {
+        $this->validateRequired($properties, 'create', [
+            'redis_password',
+            'redis_memory_limit',
+        ]);
+
+        $request = (new Request())
+            ->setMethod(Request::METHOD_POST)
+            ->setUrl(sprintf('clusters/%d/properties/redis', $clusterId))
+            ->setBody($this->filterFields($properties->toArray(), [
+                'redis_password',
+                'redis_memory_limit',
+            ]));
+
+        $response = $this
+            ->client
+            ->request($request);
+        if (!$response->isSuccess()) {
+            return $response;
+        }
+
+        return $response->setData([
+            'properties' => (new ClusterRedisProperties())->fromArray($response->getData()),
+        ]);
+    }
+
+    public function updateRedisProperties(int $clusterId, ClusterRedisProperties $properties): Response
+    {
+        $request = (new Request())
+            ->setMethod(Request::METHOD_PATCH)
+            ->setUrl(sprintf('clusters/%d/properties/redis', $clusterId))
+            ->setBody($this->filterFields($properties->toArray(), [
+                'redis_password',
+                'redis_memory_limit',
+            ]));
+
+        $response = $this
+            ->client
+            ->request($request);
+        if (!$response->isSuccess()) {
+            return $response;
+        }
+
+        return $response->setData([
+            'properties' => (new ClusterRedisProperties())->fromArray($response->getData()),
         ]);
     }
 }
