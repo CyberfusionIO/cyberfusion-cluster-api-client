@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 this package and not the Core API. See the changelog of the [Core API](https://core-api.cyberfusion.io/redoc#section/Changelog) 
 for detailed information.
 
+## [1.121.1]
+
+### Fixed
+
+- Only send provided properties when updating the cluster properties.
+
 ## [1.121.0]
 
 ### Added
