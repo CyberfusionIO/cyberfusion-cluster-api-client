@@ -615,13 +615,13 @@ class Clusters extends Endpoint
         $request = (new Request())
             ->setMethod(Request::METHOD_PATCH)
             ->setUrl(sprintf('clusters/%d/properties/php', $clusterId))
-            ->setBody($this->filterFields($properties->toArray(), [
+            ->setBody(array_filter($this->filterFields($properties->toArray(), [
                 'php_versions',
                 'custom_php_modules_names',
                 'php_settings',
                 'php_ioncube_enabled',
                 'php_sessions_spread_enabled',
-            ]));
+            ])));
 
         $response = $this
             ->client
@@ -703,10 +703,10 @@ class Clusters extends Endpoint
         $request = (new Request())
             ->setMethod(Request::METHOD_PATCH)
             ->setUrl(sprintf('clusters/%d/properties/redis', $clusterId))
-            ->setBody($this->filterFields($properties->toArray(), [
+            ->setBody(array_filter($this->filterFields($properties->toArray(), [
                 'redis_password',
                 'redis_memory_limit',
-            ]));
+            ])));
 
         $response = $this
             ->client
