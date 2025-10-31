@@ -105,7 +105,10 @@ class UnixUsers extends Endpoint
     {
         $this->validateRequired($unixUser, 'create', [
             'username',
+            'shell_is_namespaced',
             'cluster_id',
+            'shell_name',
+            'record_usage_files',
         ]);
 
         $request = (new Request())
@@ -114,16 +117,16 @@ class UnixUsers extends Endpoint
             ->setBody(
                 $this->filterFields($unixUser->toArray(), [
                     'username',
+                    'virtual_hosts_directory',
+                    'shell_is_namespaced',
+                    'mail_domains_directory',
+                    'cluster_id',
                     'password',
-                    'shell_path',
+                    'shell_name',
                     'record_usage_files',
                     'default_php_version',
                     'default_nodejs_version',
-                    'virtual_hosts_directory',
-                    'mail_domains_directory',
-                    'borg_repositories_directory',
                     'description',
-                    'cluster_id',
                 ])
             );
 
@@ -146,35 +149,17 @@ class UnixUsers extends Endpoint
      */
     public function update(UnixUser $unixUser): Response
     {
-        $this->validateRequired($unixUser, 'update', [
-            'username',
-            'id',
-            'cluster_id',
-            'unix_id',
-            'home_directory',
-            'ssh_directory',
-        ]);
-
         $request = (new Request())
             ->setMethod(Request::METHOD_PATCH)
             ->setUrl(sprintf('unix-users/%d', $unixUser->getId()))
             ->setBody(
                 $this->filterFields($unixUser->toArray(), [
-                    'username',
                     'password',
-                    'shell_path',
+                    'shell_name',
                     'record_usage_files',
                     'default_php_version',
                     'default_nodejs_version',
-                    'virtual_hosts_directory',
-                    'mail_domains_directory',
-                    'borg_repositories_directory',
                     'description',
-                    'cluster_id',
-                    'id',
-                    'unix_id',
-                    'home_directory',
-                    'ssh_directory',
                 ])
             );
 

@@ -10,18 +10,17 @@ use Cyberfusion\ClusterApi\Support\Validator;
 
 class VirtualHost extends ClusterModel
 {
+    private ?string $serverSoftwareName = null;
+    private ?array $allowOverrideDirectives;
+    private ?array $allowOverrideOptionDirectives;
     private string $domain;
-    private array $serverAliases = [];
-    private int $unixUserId;
-    private string $documentRoot;
     private string $publicRoot;
+    private int $unixUserId;
+    private array $serverAliases = [];
+    private string $documentRoot;
     private ?int $fpmPoolId = null;
     private ?int $passengerAppId = null;
     private ?string $customConfig = null;
-    private ?string $serverSoftwareName = null;
-    private ?string $domainRoot = null;
-    private ?array $allowOverrideDirectives;
-    private ?array $allowOverrideOptionDirectives;
     private ?int $id = null;
     private ?int $clusterId = null;
     private ?string $createdAt = null;
@@ -157,23 +156,6 @@ class VirtualHost extends ClusterModel
         return $this;
     }
 
-    public function getDomainRoot(): ?string
-    {
-        return $this->domainRoot;
-    }
-
-    public function setDomainRoot(?string $domainRoot): self
-    {
-        Validator::value($domainRoot)
-            ->nullable()
-            ->path()
-            ->validate();
-
-        $this->domainRoot = $domainRoot;
-
-        return $this;
-    }
-
     public function getAllowOverrideDirectives(): ?array
     {
         if ($this->getServerSoftwareName() === VirtualHostServerSoftwareName::SERVER_SOFTWARE_NGINX) {
@@ -284,7 +266,6 @@ class VirtualHost extends ClusterModel
             ->setPublicRoot(Arr::get($data, 'public_root'))
             ->setFpmPoolId(Arr::get($data, 'fpm_pool_id'))
             ->setPassengerAppId(Arr::get($data, 'passenger_app_id'))
-            ->setDomainRoot(Arr::get($data, 'domain_root'))
             ->setCustomConfig(Arr::get($data, 'custom_config'))
             ->setAllowOverrideDirectives(Arr::get($data, 'allow_override_directives'))
             ->setAllowOverrideOptionDirectives(Arr::get($data, 'allow_override_option_directives'))
@@ -308,7 +289,6 @@ class VirtualHost extends ClusterModel
             'custom_config' => $this->getCustomConfig(),
             'id' => $this->getId(),
             'cluster_id' => $this->getClusterId(),
-            'domain_root' => $this->getDomainRoot(),
             'allow_override_directives' => $this->getAllowOverrideDirectives(),
             'allow_override_option_directives' => $this->getAllowOverrideOptionDirectives(),
             'server_software_name' => $this->getServerSoftwareName(),
