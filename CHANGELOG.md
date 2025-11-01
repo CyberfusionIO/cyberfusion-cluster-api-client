@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 this package and not the Core API. See the changelog of the [Core API](https://core-api.cyberfusion.io/redoc#section/Changelog) 
 for detailed information.
 
+Be aware: this client is deprecated and updates do NOT fully support the latest Core API version, but just makes sure 
+some basic stuff keeps (partially) working.
+
+## [1.122.0]
+
+### Changed
+
+- Update properties of `UnixUser` and `Virtualhost` models to match the Core API spec.
+- Update create and update endpoints of `UnixUsers` and `VirtualHosts` endpoints to match the Core API spec.
+- Deprecate the sort on the filter as the Core API no longer supports sorting.
+- Update the filter to use the `page` and `per_page` parameters instead of `skip` and `limit` to match the Core API spec.
+
 ## [1.121.1]
 
 ### Fixed

@@ -2,25 +2,23 @@
 
 namespace Cyberfusion\ClusterApi\Models;
 
-use Cyberfusion\ClusterApi\Enums\ShellPath;
+use Cyberfusion\ClusterApi\Enums\ShellName;
 use Cyberfusion\ClusterApi\Support\Arr;
 use Cyberfusion\ClusterApi\Support\Validator;
 
 class UnixUser extends ClusterModel
 {
     private string $username;
+    private ?string $virtualHostsDirectory = null;
+    private ?bool $shellIsNamespaced = null;
+    private ?string $mailDomainsDirectory = null;
+    private int $clusterId;
     private ?string $password = null;
-    private ?string $homeDirectory = null;
-    private ?string $sshDirectory = null;
-    private ?string $description = null;
+    private string $shellName = ShellName::BASH;
+    private bool $recordUsageFiles = false;
     private ?string $defaultPhpVersion = null;
     private ?string $defaultNodejsVersion = null;
-    private ?string $virtualHostsDirectory = null;
-    private ?string $mailDomainsDirectory = null;
-    private ?string $borgRepositoriesDirectory = null;
-    private string $shellPath = ShellPath::BASH;
-    private bool $recordUsageFiles = false;
-    private int $clusterId;
+    private ?string $description = null;
     private ?int $id = null;
     private ?int $unixId = null;
     private ?string $createdAt = null;
@@ -109,40 +107,6 @@ class UnixUser extends ClusterModel
         return $this;
     }
 
-    public function getHomeDirectory(): ?string
-    {
-        return $this->homeDirectory;
-    }
-
-    public function setHomeDirectory(?string $homeDirectory): self
-    {
-        Validator::value($homeDirectory)
-            ->nullable()
-            ->path()
-            ->validate();
-
-        $this->homeDirectory = $homeDirectory;
-
-        return $this;
-    }
-
-    public function getSshDirectory(): ?string
-    {
-        return $this->sshDirectory;
-    }
-
-    public function setSshDirectory(?string $sshDirectory): self
-    {
-        Validator::value($sshDirectory)
-            ->nullable()
-            ->path()
-            ->validate();
-
-        $this->sshDirectory = $sshDirectory;
-
-        return $this;
-    }
-
     public function getVirtualHostsDirectory(): ?string
     {
         return $this->virtualHostsDirectory;
@@ -177,35 +141,30 @@ class UnixUser extends ClusterModel
         return $this;
     }
 
-    public function getBorgRepositoriesDirectory(): ?string
+    public function getShellName(): string
     {
-        return $this->borgRepositoriesDirectory;
+        return $this->shellName;
     }
 
-    public function setBorgRepositoriesDirectory(?string $borgRepositoriesDirectory): self
+    public function setShellName(string $shellName): self
     {
-        Validator::value($borgRepositoriesDirectory)
-            ->nullable()
-            ->path()
+        Validator::value($shellName)
+            ->valueIn(ShellName::AVAILABLE)
             ->validate();
 
-        $this->borgRepositoriesDirectory = $borgRepositoriesDirectory;
+        $this->shellName = $shellName;
 
         return $this;
     }
 
-    public function getShellPath(): string
+    public function getShellIsNamespaced(): ?bool
     {
-        return $this->shellPath;
+        return $this->shellIsNamespaced;
     }
 
-    public function setShellPath(string $shellPath): self
+    public function setShellIsNamespaced(?bool $shellIsNamespaced): self
     {
-        Validator::value($shellPath)
-            ->valueIn(ShellPath::AVAILABLE)
-            ->validate();
-
-        $this->shellPath = $shellPath;
+        $this->shellIsNamespaced = $shellIsNamespaced;
 
         return $this;
     }
@@ -287,15 +246,13 @@ class UnixUser extends ClusterModel
         return $this
             ->setUsername(Arr::get($data, 'username'))
             ->setPassword(Arr::get($data, 'password'))
-            ->setHomeDirectory(Arr::get($data, 'home_directory'))
-            ->setSshDirectory(Arr::get($data, 'ssh_directory'))
             ->setDescription(Arr::get($data, 'description'))
             ->setDefaultPhpVersion(Arr::get($data, 'default_php_version'))
             ->setDefaultNodejsVersion(Arr::get($data, 'default_nodejs_version'))
             ->setVirtualHostsDirectory(Arr::get($data, 'virtual_hosts_directory'))
             ->setMailDomainsDirectory(Arr::get($data, 'mail_domains_directory'))
-            ->setBorgRepositoriesDirectory(Arr::get($data, 'borg_repositories_directory'))
-            ->setShellPath(Arr::get($data, 'shell_path', ShellPath::BASH))
+            ->setShellName(Arr::get($data, 'shell_name', ShellName::BASH))
+            ->setShellIsNamespaced(Arr::get($data, 'shell_is_namespaced'))
             ->setRecordUsageFiles(Arr::get($data, 'record_usage_files', false))
             ->setUnixId(Arr::get($data, 'unix_id'))
             ->setId(Arr::get($data, 'id'))
@@ -308,18 +265,16 @@ class UnixUser extends ClusterModel
     {
         return [
             'username' => $this->getUsername(),
+            'virtual_hosts_directory' => $this->getVirtualHostsDirectory(),
+            'shell_is_namespaced' => $this->getShellIsNamespaced(),
+            'mail_domains_directory' => $this->getMailDomainsDirectory(),
+            'cluster_id' => $this->getClusterId(),
             'password' => $this->getPassword(),
-            'home_directory' => $this->getHomeDirectory(),
-            'ssh_directory' => $this->getSshDirectory(),
-            'description' => $this->getDescription(),
+            'shell_name' => $this->getShellName(),
+            'record_usage_files' => $this->getRecordUsageFiles(),
             'default_php_version' => $this->getDefaultPhpVersion(),
             'default_nodejs_version' => $this->getDefaultNodejsVersion(),
-            'virtual_hosts_directory' => $this->getVirtualHostsDirectory(),
-            'mail_domains_directory' => $this->getMailDomainsDirectory(),
-            'borg_repositories_directory' => $this->getBorgRepositoriesDirectory(),
-            'shell_path' => $this->getShellPath(),
-            'record_usage_files' => $this->getRecordUsageFiles(),
-            'cluster_id' => $this->getClusterId(),
+            'description' => $this->getDescription(),
             'id' => $this->getId(),
             'unix_id' => $this->getUnixId(),
             'created_at' => $this->getCreatedAt(),

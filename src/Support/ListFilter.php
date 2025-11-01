@@ -150,6 +150,7 @@ class ListFilter implements Filter
     }
 
     /**
+     * @deprecated No longer supported by the API
      * @return array<SortEntry>
      */
     public function getSort(): array
@@ -158,6 +159,7 @@ class ListFilter implements Filter
     }
 
     /**
+     * @deprecated No longer supported by the API
      * @throws ListFilterException
      */
     public function sort(SortEntry $sortEntry): self
@@ -171,6 +173,7 @@ class ListFilter implements Filter
     }
 
     /**
+     * @deprecated No longer supported by the API
      * @throws ListFilterException
      */
     public function addSort(string $field, string $method = Sort::ASC): self
@@ -179,6 +182,7 @@ class ListFilter implements Filter
     }
 
     /**
+     * @deprecated No longer supported by the API
      * @throws ListFilterException
      */
     public function setSort(array $sortEntries): self
@@ -217,14 +221,15 @@ class ListFilter implements Filter
 
     public function toQuery(): string
     {
-        $builder = (new Builder())
-            ->add('skip', (string)$this->skip)
-            ->add('limit', (string)$this->limit);
+        $builder = new Builder();
+
+        if ($this->limit !== 0) {
+            $builder
+                ->add('page', (string)(($this->skip / $this->limit) + 1))
+                ->add('per_page', (string)$this->limit);
+        }
         foreach ($this->filter as $entry) {
             $builder->add('filter', $entry->toString());
-        }
-        foreach ($this->sort as $entry) {
-            $builder->add('sort', $entry->toString());
         }
         if ($this->includeSoftDeleted) {
             $builder->add('include_soft_deleted', 'true');

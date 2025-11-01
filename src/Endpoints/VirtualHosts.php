@@ -67,11 +67,14 @@ class VirtualHosts extends Endpoint
     public function create(VirtualHost $virtualHost): Response
     {
         $this->validateRequired($virtualHost, 'create', [
+            'server_software_name',
+            'allow_override_directives',
+            'allow_override_option_directives',
             'domain',
-            'server_aliases',
-            'unix_user_id',
-            'document_root',
             'public_root',
+            'unix_user_id',
+            'server_aliases',
+            'document_root',
         ]);
 
         $request = (new Request())
@@ -79,17 +82,17 @@ class VirtualHosts extends Endpoint
             ->setUrl('virtual-hosts')
             ->setBody(
                 $this->filterFields($virtualHost->toArray(), [
-                    'domain',
-                    'server_aliases',
-                    'unix_user_id',
-                    'document_root',
-                    'public_root',
-                    'fpm_pool_id',
-                    'passenger_app_id',
-                    'custom_config',
                     'server_software_name',
                     'allow_override_directives',
                     'allow_override_option_directives',
+                    'domain',
+                    'public_root',
+                    'unix_user_id',
+                    'server_aliases',
+                    'document_root',
+                    'fpm_pool_id',
+                    'passenger_app_id',
+                    'custom_config',
                 ])
             );
 
@@ -112,37 +115,20 @@ class VirtualHosts extends Endpoint
      */
     public function update(VirtualHost $virtualHost): Response
     {
-        $this->validateRequired($virtualHost, 'update', [
-            'domain',
-            'server_aliases',
-            'unix_user_id',
-            'document_root',
-            'public_root',
-            'id',
-            'server_software_name',
-            'domain_root',
-            'cluster_id',
-        ]);
-
         $request = (new Request())
             ->setMethod(Request::METHOD_PATCH)
             ->setUrl(sprintf('virtual-hosts/%d', $virtualHost->getId()))
             ->setBody(
                 $this->filterFields($virtualHost->toArray(), [
-                    'domain',
                     'server_aliases',
-                    'unix_user_id',
                     'document_root',
-                    'public_root',
                     'fpm_pool_id',
                     'passenger_app_id',
                     'custom_config',
-                    'id',
-                    'server_software_name',
                     'allow_override_directives',
                     'allow_override_option_directives',
-                    'domain_root',
-                    'cluster_id',
+                    'server_software_name',
+                    'public_root',
                 ])
             );
 

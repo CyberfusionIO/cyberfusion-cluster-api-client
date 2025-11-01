@@ -62,7 +62,7 @@ class ListFilterTest extends TestCase
             ->setSort($sort);
 
         $this->assertSame(
-            'skip=10&limit=5&filter=testField%3Afoo&filter=testField%3Abar&filter=testField2%3Alol&sort=col%3AASC',
+            'page=3&per_page=5&filter=testField%3Afoo&filter=testField%3Abar&filter=testField2%3Alol',
             $listFilter->toQuery()
         );
     }
@@ -110,7 +110,7 @@ class ListFilterTest extends TestCase
             ->setSort($sort);
 
         $this->assertSame(
-            'skip=10&limit=5&filter=testField%3Afoo&filter=testField%3Abar&filter=testField2%3Alol&sort=col%3AASC',
+            'page=3&per_page=5&filter=testField%3Afoo&filter=testField%3Abar&filter=testField2%3Alol',
             $listFilter->toQuery()
         );
     }
