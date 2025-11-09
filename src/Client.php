@@ -2,6 +2,7 @@
 
 namespace Cyberfusion\ClusterApi;
 
+use Carbon\Carbon;
 use Cyberfusion\ClusterApi\Contracts\Client as ClientContract;
 use Cyberfusion\ClusterApi\Endpoints\Health;
 use Cyberfusion\ClusterApi\Exceptions\ClientException;
@@ -20,7 +21,7 @@ class Client implements ClientContract
 
     private const TIMEOUT = 180;
 
-    private const VERSION = '1.122.0';
+    private const VERSION = '1.123.0';
 
     private const USER_AGENT = 'cyberfusion-cluster-api-client/' . self::VERSION;
 
@@ -188,7 +189,16 @@ class Client implements ClientContract
             throw RequestException::requestFailed($exception->getMessage());
         }
 
-        return new Response($response->getStatusCode(), $response->getReasonPhrase(), $this->parseBody($response));
+        return new Response(
+            $response->getStatusCode(),
+            $response->getReasonPhrase(),
+            $this->parseBody($response),
+            $this->parseTotalItems($response),
+            $response->getHeader('link'),
+            $response->hasHeader('last-modified')
+                ? Carbon::parse($response->getHeaderLine('last-modified'))
+                : null,
+        );
     }
 
     /**
@@ -217,6 +227,20 @@ class Client implements ClientContract
         }
 
         return $requestOptions;
+    }
+
+    private function parseTotalItems(ResponseInterface $response): ?int
+    {
+        if (! $response->hasHeader('x-total-count')) {
+            return null;
+        }
+
+        $totalItems = $response->getHeader('x-total-count');
+        if (count($totalItems) === 0) {
+            return null;
+        }
+
+        return (int) $totalItems[0];
     }
 
     /**

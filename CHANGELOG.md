@@ -9,6 +9,12 @@ for detailed information.
 Be aware: this client is deprecated and updates do NOT fully support the latest Core API version, but just makes sure 
 some basic stuff keeps (partially) working.
 
+## [1.123.0]
+
+### Added
+
+- Add `getTotalItems`, `getLinks` and `getLastModified` to the response object. This is useful for pagination and caching.
+
 ## [1.122.0]
 
 ### Changed
