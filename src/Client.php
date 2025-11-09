@@ -231,7 +231,7 @@ class Client implements ClientContract
 
     private function parseTotalItems(ResponseInterface $response): ?int
     {
-        if (! $response->hasHeader('x-total-count')) {
+        if (!$response->hasHeader('x-total-count')) {
             return null;
         }
 
