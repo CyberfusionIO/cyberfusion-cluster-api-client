@@ -2,10 +2,18 @@
 
 namespace Cyberfusion\ClusterApi;
 
+use Carbon\CarbonInterface;
+
 class Response
 {
-    public function __construct(private readonly int $statusCode, private readonly string $statusMessage, private array $data = [])
-    {
+    public function __construct(
+        private readonly int $statusCode,
+        private readonly string $statusMessage,
+        private array $data = [],
+        private readonly ?int $totalItems = null,
+        private readonly array $links = [],
+        private readonly ?CarbonInterface $lastModified = null,
+    ) {
     }
 
     public function getStatusCode(): int
@@ -37,5 +45,20 @@ class Response
         $this->data = $data;
 
         return $this;
+    }
+
+    public function getTotalItems(): ?int
+    {
+        return $this->totalItems;
+    }
+
+    public function getLinks(): array
+    {
+        return $this->links;
+    }
+
+    public function getLastModified(): ?CarbonInterface
+    {
+        return $this->lastModified;
     }
 }
