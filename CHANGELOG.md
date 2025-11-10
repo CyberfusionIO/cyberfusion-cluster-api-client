@@ -9,6 +9,12 @@ for detailed information.
 Be aware: this client is deprecated and updates do NOT fully support the latest Core API version, but just makes sure 
 some basic stuff keeps (partially) working.
 
+## [1.123.1]
+
+### Fixed
+
+- Restore `home` and `ssh` directory properties for the UNIX user model.
+
 ## [1.123.0]
 
 ### Added
