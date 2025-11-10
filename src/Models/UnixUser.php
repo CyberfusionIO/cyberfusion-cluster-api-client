@@ -9,6 +9,8 @@ use Cyberfusion\ClusterApi\Support\Validator;
 class UnixUser extends ClusterModel
 {
     private string $username;
+    private ?string $homeDirectory = null;
+    private ?string $sshDirectory = null;
     private ?string $virtualHostsDirectory = null;
     private ?bool $shellIsNamespaced = null;
     private ?string $mailDomainsDirectory = null;
@@ -37,6 +39,40 @@ class UnixUser extends ClusterModel
             ->validate();
 
         $this->username = $username;
+
+        return $this;
+    }
+
+    public function getHomeDirectory(): ?string
+    {
+        return $this->homeDirectory;
+    }
+
+    public function setHomeDirectory(?string $homeDirectory): self
+    {
+        Validator::value($homeDirectory)
+            ->nullable()
+            ->path()
+            ->validate();
+
+        $this->homeDirectory = $homeDirectory;
+
+        return $this;
+    }
+
+    public function getSshDirectory(): ?string
+    {
+        return $this->sshDirectory;
+    }
+
+    public function setSshDirectory(?string $sshDirectory): self
+    {
+        Validator::value($sshDirectory)
+            ->nullable()
+            ->path()
+            ->validate();
+
+        $this->sshDirectory = $sshDirectory;
 
         return $this;
     }
@@ -246,6 +282,8 @@ class UnixUser extends ClusterModel
         return $this
             ->setUsername(Arr::get($data, 'username'))
             ->setPassword(Arr::get($data, 'password'))
+            ->setHomeDirectory(Arr::get($data, 'home_directory'))
+            ->setSshDirectory(Arr::get($data, 'ssh_directory'))
             ->setDescription(Arr::get($data, 'description'))
             ->setDefaultPhpVersion(Arr::get($data, 'default_php_version'))
             ->setDefaultNodejsVersion(Arr::get($data, 'default_nodejs_version'))
@@ -265,6 +303,8 @@ class UnixUser extends ClusterModel
     {
         return [
             'username' => $this->getUsername(),
+            'home_directory' => $this->getHomeDirectory(),
+            'ssh_directory' => $this->getSshDirectory(),
             'virtual_hosts_directory' => $this->getVirtualHostsDirectory(),
             'shell_is_namespaced' => $this->getShellIsNamespaced(),
             'mail_domains_directory' => $this->getMailDomainsDirectory(),
