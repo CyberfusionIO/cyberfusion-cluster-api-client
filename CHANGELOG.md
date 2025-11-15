@@ -9,6 +9,12 @@ for detailed information.
 Be aware: this client is deprecated and updates do NOT fully support the latest Core API version, but just makes sure 
 some basic stuff keeps (partially) working.
 
+## [1.123.2]
+
+### Fixed
+
+- Remove the `public_root` property from the `VirtualHost` model as that property no longer exists in the Core API.
+
 ## [1.123.1]
 
 ### Fixed

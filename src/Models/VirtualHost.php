@@ -14,7 +14,6 @@ class VirtualHost extends ClusterModel
     private ?array $allowOverrideDirectives;
     private ?array $allowOverrideOptionDirectives;
     private string $domain;
-    private string $publicRoot;
     private int $unixUserId;
     private array $serverAliases = [];
     private string $documentRoot;
@@ -78,22 +77,6 @@ class VirtualHost extends ClusterModel
             ->validate();
 
         $this->documentRoot = $documentRoot;
-
-        return $this;
-    }
-
-    public function getPublicRoot(): string
-    {
-        return $this->publicRoot;
-    }
-
-    public function setPublicRoot(string $publicRoot): self
-    {
-        Validator::value($publicRoot)
-            ->path()
-            ->validate();
-
-        $this->publicRoot = $publicRoot;
 
         return $this;
     }
@@ -263,7 +246,6 @@ class VirtualHost extends ClusterModel
             ->setServerAliases(Arr::get($data, 'server_aliases', []))
             ->setUnixUserId(Arr::get($data, 'unix_user_id'))
             ->setDocumentRoot(Arr::get($data, 'document_root'))
-            ->setPublicRoot(Arr::get($data, 'public_root'))
             ->setFpmPoolId(Arr::get($data, 'fpm_pool_id'))
             ->setPassengerAppId(Arr::get($data, 'passenger_app_id'))
             ->setCustomConfig(Arr::get($data, 'custom_config'))
@@ -283,7 +265,6 @@ class VirtualHost extends ClusterModel
             'server_aliases' => $this->getServerAliases(),
             'unix_user_id' => $this->getUnixUserId(),
             'document_root' => $this->getDocumentRoot(),
-            'public_root' => $this->getPublicRoot(),
             'fpm_pool_id' => $this->getFpmPoolId(),
             'passenger_app_id' => $this->getPassengerAppId(),
             'custom_config' => $this->getCustomConfig(),
