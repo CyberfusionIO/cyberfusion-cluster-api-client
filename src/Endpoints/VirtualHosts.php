@@ -71,7 +71,6 @@ class VirtualHosts extends Endpoint
             'allow_override_directives',
             'allow_override_option_directives',
             'domain',
-            'public_root',
             'unix_user_id',
             'server_aliases',
             'document_root',
@@ -86,7 +85,6 @@ class VirtualHosts extends Endpoint
                     'allow_override_directives',
                     'allow_override_option_directives',
                     'domain',
-                    'public_root',
                     'unix_user_id',
                     'server_aliases',
                     'document_root',
@@ -128,7 +126,6 @@ class VirtualHosts extends Endpoint
                     'allow_override_directives',
                     'allow_override_option_directives',
                     'server_software_name',
-                    'public_root',
                 ])
             );
 
