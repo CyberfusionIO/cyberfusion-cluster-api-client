@@ -9,6 +9,12 @@ for detailed information.
 Be aware: this client is deprecated and updates do NOT fully support the latest Core API version, but just makes sure 
 some basic stuff keeps (partially) working.
 
+## [1.123.4]
+
+### Fixed
+
+- Add nologin shell name.
+
 ## [1.123.3]
 
 ### Fixed
